@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发货仓库匹配 </title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+
+    <div class="search-grid-container" style="padding: 20px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row">新增发货仓</button>
+        <div class="pull-right">
+            <span class="logs-btn">操作日志</span>
+        </div>
+        <div id="warehouse_notice" class="warehouse_notice" style="margin-top:-10px;margin-left:0px;margin-right:0px;border:none;">
+            <span id="showNature">！注意：请确保至少一个仓库处于启用状态。</span>
+        </div>
+        <div id="grid">
+        </div>
+        <button id="save_btn" type="button" class="button" style="margin: 10% 50%;">保存</button>
+        <div id="bar" class="bui-grid" style="width:99%"></div>
+        <div id="show_addmore" style="display: none">
+            <div class="content">
+                <form id="J_Form" action="" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label"><s>*</s>仓库名称：</label>
+                        <div class="controls">
+                            <select style="width: 400px;" id="warehouseName" name="warehouseName" data-rules="{required:true}"></select>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label" style="width: 180px;"><s>*</s>发货优先级：在当前序号</label>
+                        <div class="controls">
+                            <select style="width: 200px;" id="warehouseIndex" name="warehouseIndex" data-rules="{required:true}"></select>
+                        </div>
+                        <label class="control-label" style="width: auto;">之前</label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">启用</label>
+                        <input type='checkbox' name='new_checkbox' id="start_use" style="margin-left: 10px;margin-top: 8px;">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>

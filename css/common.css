@@ -1,0 +1,295 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body,html{
+    padding:0;
+    margin: 0 auto;
+    font-family: 'Microsoft YaHei';
+    /*font-size: 17px;*/
+    color:#4C4C4C;
+    /*以下为窄屏样式，如不要窄屏去掉即为宽屏显示*/
+    /*width: 1000px;*/
+    /*margin:0 auto;*/
+    /*position:relative;*/
+    /*border:1px solid #4C7D99;*/
+    background-color: #e1e1e1;
+    overflow:auto;
+}
+/*html{overflow: hidden}*/
+.header{
+    width:100%;
+    /*height:85px;*/
+    /*background:url(../../images/supply/headerbg.png);*/
+    background-repeat: repeat-x;
+}
+.header .header-over{
+    position:absolute;
+    z-index: 10;top:0;
+    left: 0;
+    height:85px;
+    width:100%;
+    background-repeat: no-repeat;
+}
+.bodyer{
+    /*background-color: #75C7F3;*/
+    padding:5px;
+    width: 100%;
+}
+.bodyer .bodyer-content{
+    /*border:1px solid #4C7D99;*/
+    width:100%;
+    height: 100%;
+    background-color: #e1e1e1;
+}
+.content-title{
+    width:100%;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    background:#D5D5D5;
+}
+.content-title img{
+    width: 100%;
+    height: 39px;
+    display: none;
+}
+.content-title .title-name{
+    /*color: white;*/
+    font-family: 'Microsoft YaHei';
+    font-size: 17px;
+    letter-spacing: 2px;
+    line-height: 39px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    text-align: center;
+}
+.content-body{
+    overflow: auto;
+}
+.grid-column{
+    margin-top:5px;
+    margin-left:40px;
+    margin-bottom:300px;
+    font-size: 14px;
+    width: 90%;
+    margin-right: auto;
+}
+.lump{
+	width:90%;
+    border:1px solid #9AD7D7;
+    overflow: hidden;
+    /*ie6下bug，如果子节点中有position:relative;则overflow:hidden失效*/
+    /*position:relative;*/
+    margin:10px 40px;
+}
+.lump .lump-title{
+    font-size: 14px;
+    padding:5px 15px;
+    background: #BDE7E6;
+}
+.lump table{
+    width: 100%;
+}
+.lump table tr td{
+    border-top:1px solid #9AD7D7;
+    padding:6px 10px 6px 100px;
+    font-size:13px;
+    width:33.33%;
+    position: relative;
+    vertical-align: top;
+}
+
+.lump table tr td .td-name{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    padding:6px 0 6px 1px;
+    text-align: right;
+}
+
+.lump table tr td .td-name2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    padding:6px 0 6px 1px;
+    text-align: left;
+}
+
+.lump table tr td input[type=text],.lump table tr td select,.lump table tr td textarea{
+    width:98%;
+    /*background: #EBEBEB;*/
+    border:1px solid #999999;
+    /*border-width:0;*/
+}
+.lump table tr td input[type=radio].radiosep{
+    margin-left: 20px;
+    background: #EBEBEB;
+}
+
+.lump table tr td input[type=radio].radiosep2{
+    margin-left: 55px;
+    background: #EBEBEB;
+}
+
+
+.lump2{
+    border:1px solid #9AD7D7;
+    overflow: hidden;
+    /*ie6下bug，如果子节点中有position:relative;则overflow:hidden失效*/
+    /*position:relative;*/
+    margin:10px 0px;
+}
+
+.lump2 .lump-title{
+    font-size: 14px;
+    padding:10px 2px;
+    background: #BDE7E6;
+}
+.lump2 table{
+    width: 100%;
+}
+
+.lump2 table tr td{
+	 border-bottom: 1px dashed;
+    font-size:13px;
+    width: 6.6%;
+    text-align: center;
+    position: relative;
+    padding: 4px 4px;
+}
+
+
+
+
+.btn-group{
+    text-align: center;
+    margin:20px 0;
+}
+.btn{
+    padding:3px 10px;
+    display: inline;
+    border:1px outset #e1e1e1;
+    font-size:14px;
+    margin-left: 10px;
+    margin-top:3px;
+}
+.btn:hover{
+    cursor: pointer;
+    border-color:#ABADB3;
+}
+.btn:active{
+    border-style:inset;
+}
+.btn.btn-default {background: #D4D3D2;}
+.btn.btn-primary {background: #9AD7D7;}
+.lump table tr td.td-left{
+    width:100px;
+    padding:10px;
+}
+.td-left img{
+    width: 100px;
+    height: 130px;
+    border:1px solid #ABADB3;
+}
+.td-left .doctor-name{
+    text-align: center;
+}
+.lump table tr td.td-right{
+    width:auto;
+    padding:10px;
+}
+.td-right .yuyuebox{
+    height:80px;
+    border:1px solid #ABADB3;
+    padding:10px 30px;
+    position:relative;
+}
+.yuyuebox .yuyuebox-left{
+    width:30px;
+    position:absolute;
+    top:0;
+    left:0;
+    text-align: left;
+    padding-left: 5px;
+}
+.yuyuebox .yuyuebox-left:hover{
+    cursor: pointer;
+}
+.yuyuebox .yuyuebox-right{
+    width:30px;
+    position:absolute;
+    top:0;
+    right:0;
+    text-align: right;
+    padding-right:5px;
+}
+.yuyuebox .yuyuebox-right:hover{
+    cursor: pointer;
+}
+.yuyuebox .yuyuebox-left img,.yuyuebox .yuyuebox-right img{
+    width:20px;
+    margin-top:15px;
+}
+.yuyuebox .yuyuebox-content{
+    border-left:1px solid #ABADB3;
+    border-right:1px solid #ABADB3;
+    height: 100%;
+    overflow: hidden;
+}
+.yuyuebox-content-items{
+    overflow: hidden;
+    margin-left:0;
+}
+.yuyuebox-content-item{
+    width:100px;
+    height:100%;
+    border-right:1px solid #ABADB3;
+    float: left;
+}
+.yuyuebox-content-item:hover{
+    background-color: #e1e1e1;
+    cursor: pointer;
+}
+.yuyuebox-content-item .item-div{
+    text-align: center;
+    font-weight: bold;
+}
+.yuyuenums{
+    overflow: hidden;
+    width: 100%;
+    margin-top:10px;
+
+}
+.yuyuenums .yuyuenums-item{
+    float: left;
+    width: 16.66%;
+    text-align: left;
+    padding: 10px 0;
+    font-size:12px;
+    font-weight: bold;
+    border-top:1px solid black;
+
+}
+.yuyuenums .yuyuenums-item:hover{
+    cursor: pointer;
+    background-color: #e1e1e1;
+}
+.yuyuenums .yuyuenums-item .item-div{
+    text-align: center;
+    padding-left: 20px;
+    border-left: 1px solid #ABADB3;
+}
+
+/*您当前的位置*/
+.site{ width:99%; height:34px; background:url(/scm-front/images/supply/pic-adbg4.png) repeat-x; border-bottom:1px solid #9DB2C3; color:#000; line-height:34px; text-align:left; letter-spacing:1px; padding-left:1%;}
+.rtcot{ width:98%; padding:1%;}
+/*桌面*/
+.rtcottit{ width:110px; height:25px; padding:1px; border:1px solid #A4B2BD; background:url(/scm-front/images/supply/pic-adbg2.png) repeat-x; color:#476A86; font-weight:bold; border-bottom:0px; text-align:center; line-height:25px; letter-spacing:1px;}
+.rtcot2{ width:95%; border:1px solid #A4B2BD; padding:1%;}
+.rtcot2zt{ width:95%; height:25px; line-height:25px; color:#828282; text-align:left; letter-spacing:1px;}
+

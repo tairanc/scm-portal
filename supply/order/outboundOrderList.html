@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发货通知单管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span5">
+                    <label class="control-label">发货通知单编号：</label>
+                    <div class="controls">
+                        <input id="outboundOrderCode" type="text" name="outboundOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>                
+                <div class="control-group span5">
+                    <label class="control-label">销售渠道订单号：</label>
+                    <div class="controls">
+                        <input id="shopOrderCode" type="text" name="shopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label">系统订单号：</label>
+                    <div class="controls">
+                        <input id="scmShopOrderCode" type="text" name="scmShopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label">收货人：</label>
+                    <div class="controls">
+                        <input id="receiverName" type="text" name="receiverName" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row-fluid">
+                <div class="control-group span5">
+                    <label class="control-label">状态：</label>
+                    <div class="controls">
+                        <select id="status" name="status"></select>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label">发货仓库名称：</label>
+                    <div class="controls">
+                        <select id="warehouseId" name="warehouseId"></select>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label">
+                        订单付款时间：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input class="calendar" type="text" id="startPayDate" name="startPayDate"/><label> - </label>
+                        <input class="calendar" type="text" id="endPayDate" name="endPayDate"/>
+                    </div>
+                </div>  
+                <div class="control-group span5">
+                    <label class="control-label">
+                        发货单创建日期：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input class="calendar" type="text" id="startCreateDate" name="startCreateDate"/><label> - </label>
+                        <input class="calendar" type="text" id="endCreateDate" name="endCreateDate"/>
+                    </div>
+                </div>                              
+            </div>
+            <div class="row-fluid">                
+                    <div class="control-group span5">
+                            <label class="control-label">销售渠道：</label>
+                            <div class="controls">
+                                <select id="sellCode" name="sellCode">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+                  <div class="control-group span5">
+                    <label class="control-label">仓库反馈出库单号：</label>
+                    <div class="controls">
+                        <input id="wmsOrderCode" type="text" name="wmsOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label"></label>
+                    <div class="controls">
+                        
+                    </div>
+                </div>             
+                <div class="form-actions span3" style="margin-left:45px;">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>            
+    </form>
+    </div>
+
+
+    <div id="grid" style="padding: 20px;" style="width:99%">
+    </div>
+    <div id="bar" class="bui-grid" style="width:99%"></div>
+    <!-- 取消发货 -->
+    <div id="cancelDiv" style="margin-top:10px;display:none;">
+        <form id="J_Form3" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row">
+                <div class="control-group" style="font-size:16px;margin-left:15px;margin-bottom:12px;">
+                    <span>您确认要取消发货吗?</span>
+                </div>
+            </div>
+            <div class="row" style="margin-left:3px;">
+                <div class="control-group ">
+                    <span><span style="color:red">*</span>请输入取消原因：</span>
+                </div>
+            </div>
+            <div class="row" style="margin-left:3px;">
+                <textarea style="height:90px;width:400px;margin-top:10px;" id="cancelReason" required></textarea>
+            </div>
+        </form>
+    </div>
+    <!-- 关闭 -->
+    <div id="closeDiv" style="margin-top:10px;display:none;">
+        <form id="J_Form3" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row">
+                <div class="control-group" style="font-size:16px;margin-left:15px;margin-bottom:12px;">
+                    <span>您确认要关闭此发货通知单吗?</span>
+                </div>
+            </div>
+            <div class="row" style="margin-left:3px;">
+                <div class="control-group ">
+                    <span><span style="color:red">*</span>请输入关闭原因：</span>
+                </div>
+            </div>
+            <div class="row" style="margin-left:3px;">
+                <textarea style="height:90px;width:400px;margin-top:10px;" id="closeReason" required></textarea>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

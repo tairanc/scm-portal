@@ -1,0 +1,55 @@
+
+<!--js主函数-->
+<script src="../../js/supply/order/jingDongAddressAdjust.js"></script>
+<script src="../../js/util/common.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $.jingDongAddressAdjustApp.init();
+    });
+</script>
+
+<!-----------------京东地址匹配开始----------------->
+<div id="jdAddressAdapterDiv" style="margin-top: 10px;">
+    <form id="J_Form3" class="form-horizontal" tabindex="0" style="outline: none;">
+        <div class="row" id="jingDongAreaDiv" style="margin-left: 70px;">
+            <div class="control-group span16">
+                <div class="controls bui-form-group-select" data-type="jingDongArea">
+                    <select style="width: 90px;" id="province" name="province" class="input-small"><option selected="selected">省份</option></select>
+                    <select style="width: 90px;" id="city" name="city" class="input-small"><option selected="selected">城市</option></select>
+                    <select style="width: 90px;" id="area" name="area"  class="input-small"><option selected="selected">区/县</option></select>
+                    <select style="width: 90px;" id="street" name="area"  class="input-small"><option selected="selected">街道</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="control-group span8">
+                <label class="control-label">收货人省市区：</label>
+                <div class="controls">
+                    <span id="provinceCityArae"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="control-group span8">
+                <label class="control-label">收货人详细地址：</label>
+                <div class="controls">
+                    <span id="address"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="control-group span24">
+                <label class="control-label">京东地址：</label>
+                <div class="controls">
+                    <select id="jdAddress" name="jdAddress" style="width: 300px;">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>

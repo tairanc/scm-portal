@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>商品详情</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    input[type=text] {
+        width: 200px;
+    }
+
+    #normal3Cert {
+        margin-left: 110px;
+        width: 80%;
+    }
+
+    #normal3Cert table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #normal3Cert table tr {
+
+    }
+
+    #normal3Cert table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #threeCertUnion {
+        margin-left: 110px;
+        width: 80%;
+        /*display: none;*/
+    }
+
+    #threeCertUnion table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #threeCertUnion table tr {
+
+    }
+
+    #threeCertUnion table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #outerSupplier {
+        /*display: none;*/
+    }
+
+    .form-horizontal .controls {
+        margin-left: 5px;
+        float: left;
+        display: inline;
+        height: 48px;
+    }
+
+    input.calendar {
+        width: 70px;
+        margin-top: 10px;
+    }
+
+    #tabContent {
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
+        margin-top: -25px;
+    }
+
+    .panel2 {
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-info2 {
+        border-color: #9DB2C3;
+    }
+
+    .panel-header2 {
+        padding: 3px 3px 5px 5px;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        height: 15px;
+    }
+
+    .naturePropertySelect {
+        width: 180px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">SPU信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">操作日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">商品SPU编号：</label>
+                        <div class="controls">
+                            <input type="text" id="spuCode" name="spuCode" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">状态：</label>
+                        <div class="controls">
+                            <input type="text" id="isValid" name="isValid" disabled="disabled">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">商品名称：</label>
+                        <div class="controls">
+                            <input type="text" id="name" name="name" data-rules="{required:true, maxlength:20}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">所属类目：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="categoryId" name="categoryId" data-rules="{required:true}" disabled="disabled">
+                                <option value="">选择类目</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="control-group span11">
+                        <label class="control-label">所属品牌：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="brandId" name="brandId" class="input-small" data-rules="{required:true}" disabled="disabled"></select>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">贸易类型：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="tradeType" name="tradeType" class="input-small" data-rules="{required:true}" disabled="disabled"></select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">商品货号：</label>
+                        <div class="controls">
+                            <input type="text" id="itemNo" name="itemNo" data-rules="{required:true, maxlength:32}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">生产商：</label>
+                        <div class="controls">
+                            <input type="text" id="producer" name="producer" data-rules="{maxlength:20}" disabled="disabled">
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="control-group span20">
+                        <label class="control-label">商品主图：</label>
+                        <div>
+                            <div id="mainPictrue"></div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="control-group">
+                        <label class="control-label" style="width:121px;"><s>*</s>是否具有保质期管理:</label>
+                        <div class="controls">
+                            <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isQualityTrue" name="isQuality" value="1" disabled="disabled">是</label>&nbsp;&nbsp;&nbsp;
+                            <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isQualityFalse" name="isQuality" value="0" disabled="disabled">否</label>
+                        </div>
+                        <div id="qualityDayDiv" style="display: none;" class="control-group span16">
+                            <label class="control-label"><s>*</s>保质期天数(天)：</label>
+                            <div class="controls" style="color: grey;">
+                                <input style="width: 150px;" type="text" id="qualityDay" name="qualityDay" data-rules="{number:true,numberGtZero:true}" disabled="disabled">
+                                <span id="errorShow" class="x-field-error" style="display:none"><span class="x-icon x-icon-mini x-icon-error">!</span><label class="x-field-error-text">不能为空！</label></span>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>                     
+                <div class="row">
+                    <div class="control-group" style="margin-left: 10px; margin-top:10px;">
+                        <label class="control-label">备注：</label>
+                        <div class="controls  control-row-auto">
+                            <textarea id="remark" name="remark" class="control-row9 input-large" style="width: 640px;" data-rules="{maxlength:1500}" disabled="disabled"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-info" style="margin-top: -10px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left"> 商品信息</h3>
+            </div>
+            <div class="panel-body" style="width: auto">
+                <!--自然属性-->
+                <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                    <div class="panel-header2 clearfix">
+                        <!--<h4 class="pull-left" style="color: #9DB2C3"> 自然属性</h4>-->
+                        <h4 class="pull-left" style="color: #6c8ffc"> 自然属性</h4>
+                    </div>
+                    <div id="naturePropertys" style="margin-top: 10px;">
+                        <!--<label class="control-label">原产国：</label><select id="originalContry" name="originalContry" class="naturePropertySelect" data-rules="{required:true}"></select>
+                        <select style="width: 180px;" id="originalContry" name="originalContry" class="naturePropertySelect" data-rules="{required:true}"></select>
+                        <select style="width: 180px;" id="originalContry" name="originalContry" class="naturePropertySelect" data-rules="{required:true}"></select>-->
+
+
+                    </div>
+
+                </div>
+
+                <!--采购属性-->
+                <!--<div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                    <div class="panel-header2 clearfix">
+                        <h4 class="pull-left" style="color: #6c8ffc"> 采购属性</h4>
+                    </div>
+                    <div id="purchasePropertys" style="margin-top: 10px;">
+
+                    </div>
+
+                </div>-->
+
+                <!--规格信息-->
+                <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                    <div class="panel-header2 clearfix">
+                        <h4 class="pull-left" style="color: #6c8ffc"> 规格信息</h4>
+                    </div>
+                    <div id="skuGrid" style="margin-top: 10px;">
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="btn_edit" type="button" class="button button-primary">编辑</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+
+        <input type="hidden" id="id"/>
+
+
+    </form>
+
+
+    <!--分类ID--->
+    <input type="hidden" id="categoryIds"/>
+
+
+</div>
+</body>
+</html>

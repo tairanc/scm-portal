@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>品牌管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span7">
+                    <label class="control-label">品牌名称：</label>
+                    <div class="controls">
+                        <input type="text" id="name" name="name" data-rules="{maxlength:50}">
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">品牌状态：</label>
+                    <div class="controls">
+                        <select id="isValid" name="isValid">
+                            <option value=" ">全部</option>
+                            <option value="1">启用</option>
+                            <option value="0">停用</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">更新日期：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input type="text" id="startUpdateTime" name="startUpdateTime" class="calendar"/>-
+                        <input type="text" id="endUpdateTime" name="endUpdateTime" class="calendar"/>
+                    </div>
+                </div>
+                <div class="form-actions span3">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="search-grid-container" style="padding: 20px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row">新增品牌</button>
+        <div id="grid">
+        </div>
+        <div id="bar" class="bui-grid">
+        </div>
+    </div>
+</div>
+</body>
+</html>

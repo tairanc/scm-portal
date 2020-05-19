@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>业务线修改</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+<body style="overflow-y: auto">
+<div class="content detail">
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h3 class="pull-left"> 修改属性</h3>
+            <div class="pull-right">
+                <span class="logs-btn">操作日志</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="J_Form" action="" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>业务线编号：</label>
+                    <div class="controls">
+                        <input style="width: 200px;border: 0px" id="code" name="code" type="text" data-rules="{required:true,maxlength:32}" readonly>
+                        <!--<input style="width: 200px;"  id="code" name="code" type="text" readonly="readonly">-->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>业务线名称：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="name" name="name" type="text" data-rules="{required:true,maxlength:64}">
+                    </div>
+                </div>
+                <div class="control-group" style="height:auto;max-width:900px;">
+                    <label class="control-label"><s>*</s>业务销售渠道：</label>
+                    <div class="controls" style="height:auto;width:900px;">
+                        <div id="channelList" style="line-height: 30px;margin-left:110px;margin-top:-28px;"></div>
+                    </div>
+                </div>
+                <div class="control-group" style="margin-top:10px;">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea id="remark" name="remark" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>
+                <!--<div class="control-group">
+                    <label class="control-label"><s>*</s>状态：</label>
+                    <div class="controls">
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid" name="isValid" value="1" checked>是</label>&nbsp;&nbsp;&nbsp;
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">否</label>
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="form-actions span13 offset3">
+                        <button id="save_btn" type="button" class="button button-primary">保存</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="btn_list" type="button" class="button">返回</button>
+                    </div>
+                </div>
+                <input id="id" name="id" type="hidden"><!--  主键ID -->
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

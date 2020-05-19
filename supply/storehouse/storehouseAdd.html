@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新增采购单</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="../../js/supply/storehouse/storehouseitemSelect.js"></script>
+
+</head>
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+</style>
+
+
+<body>
+<div class="content detail">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+            </div>
+            <div class="panel-body">
+                <div style="height: 15px"></div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>调出仓库：</label>
+                    <div class="controls span8">
+                        <select style="width: 200px;" id="outWarehouseCode" name="outWarehouseCode" data-rules="{required:true}">
+                        </select>
+                    </div>
+                    <label class="control-label"><s>*</s>调入仓库：</label>
+                    <div class="controls span8">
+                        <select style="width: 200px;" id="inWarehouseCode" name="inWarehouseCode" data-rules="{required:true}">
+                            <option value="">请先选择采购组</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea style="width: 630px;" placeholder="不超过1500个字符" id="memo" name="memo" class="control-row4 input-large" data-rules="{maxlength:1500}"></textarea>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">收发件人信息</h3>
+            </div>
+            <div class="panel-boy" style="margin-top:15px;">
+                <div class="control-group ">
+                    <div class="controls span8">
+                        <label class="control-label"><s>*</s>发件人：</label>
+                        <input id="sender" name="sender" type="text" data-rules="{required:true,maxlength:50}"/>
+                    </div>
+                    
+                    <div class="controls span10" style="margin-left:0px;">
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <label class="control-label" style="width: 115px;"><s>*</s>发件方省份.城市：</label>
+                            <select style="width: 111px;" id="senderProvince" name="senderProvince" class="input-small" data-rules="{required:true}" disabled><optio>省份</optio></select>
+                            <select style="width: 110px;" id="senderCity" name="senderCity"  class="input-small"  data-rules="{required:true}" disabled><option>城市</option></select>
+                            <div>
+                                <span id="checkData" style="color: red;font-size:12px"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls span8">
+                        <label class="control-label"><s>*</s>发件方手机：</label>
+                        <input id="senderMobile" name="senderMobile" type="text" data-rules="{required:true,mobile:0}"/>
+                    </div>
+                   
+                    <div class="controls span8">
+                         <label class="control-label"><s>*</s>发件方详细地址：</label>
+                        <input id="senderAddress" name="senderAddress" type="text" data-rules="{required:true,maxlength:100}" disabled/>
+                    </div>
+                </div>
+
+
+                <div class="control-group ">
+                    <div class="controls span8">
+                        <label class="control-label"><s>*</s>收件人：</label>
+                        <input id="receiver" name="receiver" type="text" data-rules="{required:true,maxlength:50}"/>
+                    </div>
+                    
+                    <div class="controls span10" style="margin-left:0px;">
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <label class="control-label" style="width: 115px;"><s>*</s>收件方省份.城市：</label>
+                            <select style="width: 111px;" id="receiverProvince" name="reciverProvince" class="input-small" data-rules="{required:true}" disabled><optio>省份</optio></select>
+                            <select style="width: 110px;" id="receiverCity" name="reciverCity"  class="input-small"  data-rules="{required:true}" disabled><option>城市</option></select>
+                            <div>
+                                <span id="checkData" style="color: red;font-size:12px"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls span8">
+                        <label class="control-label"><s>*</s>收件方手机：</label>
+                        <input id="receiverMobile" name="receiverMobile" type="text" data-rules="{required:true,mobile:0}"/>
+                    </div>
+                   
+                    <div class="controls span8">
+                         <label class="control-label"><s>*</s>收件方详细地址：</label>
+                        <input id="receiverAddress" name="receiverAddress" type="text" data-rules="{required:true,maxlength:100}" disabled/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div class="search-grid-container" style="margin-bottom: 20px;">
+                    <button id="relevance" type="button" class="button button-primary">选择调拨商品</button>
+                    <div id="grid">
+                    </div>
+                </div>
+                <div class="search-grid-container">
+                    <div id="Items" style="width:115%">
+                    </div>
+                    <input name="gridValue" id="gridValue" type="hidden">
+                    <span id="itemsMsg" style="color: red"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="commit_btn" type="button" class="button button-primary">提交审核</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="save_btn" type="button" class="button button-primary">保存</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

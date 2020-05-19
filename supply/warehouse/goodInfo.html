@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>仓库信息管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+    <div class="content detail">
+    <div class="panel-header clearfix" style="margin-bottom:15px;border-bottom:1px solid #ccc">
+        <h3 class="pull-left" style="font-family:Microsoft YaHei;font-size:12px;font-weight:bold;">[&nbsp;<span id="warehouseName"></span>&nbsp;]&nbsp;商品管理</h3>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h5 class="pull-left" style="font-weight:bold;"> 商品信息</h5>
+        </div>        
+    </div>
+</div>
+    <!-- 搜索页 ================================================== -->
+    <div class="row" style="margin-top:10px;">
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group  span5">
+                    <label class="control-label">商品SKU编号：</label>
+                    <div class="controls">
+                        <input  type="text" id="skuCode" name="skuCode" data-rules="{maxlength:64}">
+                    </div>
+                </div>
+                <div class="control-group  span5">
+                    <label class="control-label">商品名称：</label>
+                    <div class="controls">
+                        <input  type="text" id="itemName" name="itemName" data-rules="{maxlength:64}">
+                    </div>
+                </div> 
+                <div class="control-group  span5">
+                    <label class="control-label">条形码：</label>
+                    <div class="controls">
+                        <input  type="text" id="barCode" name="barCode" data-rules="{maxlength:200,isBarCode:0}">
+                    </div>
+                </div> 
+                <div class="control-group span6">
+                    <label class="control-label">通知仓库状态：</label>
+                    <div class="controls">
+                        <select id="noticeStatus" name="noticeStatus">
+                            <option value="">全部</option>
+                            <option value="0">待通知</option>
+                            <option value="3">通知中</option>
+                            <option value="4">通知成功</option>
+                            <option value="1">通知失败</option>
+                            <option value="2">取消通知</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions span3">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>           
+    </form>
+    </div>    
+    <div class="search-grid-container" style="padding: 10px;margin-bottom:-5px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row" style="margin-right:15px;margin-bottom:24px;">添加商品</button>
+        <button id="export" type="button" class="button button-primary detail-row" style="margin-right:15px;margin-bottom:24px;">导出</button>
+        <button id="notice" type="button" class="button button-primary detail-row" style="margin-right:15px;margin-bottom:24px;">通知仓库</button>
+        <a href="javascript:;" class="file" id="excelFileHide">导入商品
+            <input type="file" name="" id="excelFile">
+        </a>     
+        <!-- <button id="import" type="button" class="button button-primary detail-row" style="margin-right:15px;">导入通知状态</button> -->
+        <a style="color:#428bca;text-decoration:underline;cursor:pointer;" id="downloadTemplet" class="showDownload">模板下载</a>
+        <div class="downloadTemplet" id="downloadFile">
+            <ul id="hoverDisplay">
+                <a id="onlySkucode"><li>仅导入商品</li></a>
+                <a id="template"><li>导入商品及其仓库ID</li></a>
+            </ul>
+        </div>      
+        <div id="warehouse_notice" class="warehouse_notice" style="margin-top:-10px;margin-left:0px;margin-right:0px;border:none;">
+            <span id="showNoNature">！注意：已对接“商品信息接口通知”的仓库，直接点击“通知仓库”即可进行通知‘反之，需线下通知完成后再到系统内手工“导入通知状态”；创建采购单只能添加收货仓库中“通知仓库状态”为“通知成功”的商品。</span>
+            <span id="showNature" style="display: none;">！注意：创建采购单只能添加收货仓库中“通知仓库状态”为“通知成功”的商品。</span>
+        </div>
+        <div id="grid" style="margin-top:10px;" style="width:99%">
+        </div>
+        <div id="bar" class="bui-grid" style="width:99%"></div>
+    </div>
+    <div style="margin-left:800px;margin-top:50px;">
+        <button id="backList" type="button" class="button button-primary">返回</button>
+    </div>
+    <div id="addGoodDiv" style="display: none">
+        <div class="row">
+            <div>
+                <form id="J_Form2" class="form-horizontal" tabindex="0" style="outline: none;">
+                    <div class="row" style="margin-top: -10px;">
+                        <div class="control-group span8">
+                            <label class="control-label">SKU名称：</label>
+                            <div class="controls">
+                                <input id="skuName" type="text" name="skuName" style="width: 120px;" data-rules="{maxlength:64}"/>
+                            </div>
+                        </div>          
+                        <div class="control-group span8">
+                            <label class="control-label">商品SPU编号：</label>
+                            <div class="controls">
+                                <input id="spuCode" type="text" name="spuCode" style="width: 120px;" data-rules="{maxlength:255}"/>
+                                &nbsp;&nbsp;                                                           
+                            </div>
+                        </div>   
+                        <div class="control-group span8">
+                            <label class="control-label">品牌：</label>
+                            <div class="controls">
+                                <select id="brandName" name="brandName" data-rules="{maxlength:128}">
+                                </select>
+                            </div>
+                        </div>              
+                    </div>
+                    <div class="row" style="margin-top: -10px;">
+                        <div class="control-group span26" style="margin-top: -10px;">
+                            <label class="control-label">条形码：</label>
+                            <div class="controls">
+                                <input id="barCode" type="text" name="barCode" style="width: 765px;" placeholder="输入多个请用英文,隔开" data-rules="{isBarCode:0}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: -10px;">
+                        <div class="control-group span26" style="margin-top: -10px;">
+                            <label class="control-label">商品SKU编号：</label>
+                            <div class="controls">
+                                <input id="skuCode2" type="text" name="skuCode" style="width: 765px;" placeholder="输入多个请用英文,隔开"/>
+                            </div>
+                        </div>                                                
+                    </div>
+                    <div class="row">
+                            <div class="form-actions span8" style="margin-left: 790px;margin-bottom: 5px;margin-top: -10px;">
+                                <button id="sel_btn2" type="button" class="button button-primary">查询</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button id="reset2" type="reset" class="button button-primary">重置</button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="search-grid-container" id="overflow">
+            <div id="grid2" style="height:545px;overflow-y:scroll;overflow-x:hidden;">
+            </div>
+            <div id="bar2" class="bui-grid" style="padding-bottom: 20px;min-height:10px;"></div>
+        </div>    
+    </div> 
+    <div id="errMsg" style="display:none;">
+        <div style="font-size:16px;font-weight:bold;margin-left:130px;width:300px;height:200px;margin-top:50;">导入成功<span id="sucNum" style="color:green"></span>条，导入失败<span id="failNum" style="color:red;"></span>条!
+        </div>
+    </div>
+</div>
+</body>
+</html>

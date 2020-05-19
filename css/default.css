@@ -1,0 +1,115 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0 auto;
+	align: center;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Microsoft YaHei", Tahoma, Verdana, "新宋体";
+}
+
+ul,li,dt,dl,dd,p {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #353535;
+}
+
+a:visited {
+	color: #353535;
+}
+
+a:hover {
+	color: #358de7;
+	font-weight: bold;
+}
+
+a:active {
+	color: #353535;
+}
+
+.welcome{
+	font-size: 24px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(255, 74, 0);
+	height: 474px;
+	_height: 384px\9;
+	height: 384px\9;
+	overflow: hidden;
+}
+
+.edit-btn{
+	height: 28px;
+	line-height: 26px;
+	min-width: 90px;
+	width: 90px\9;
+	_width: 90px;
+	margin: 0 10px;
+	border: solid 1px #c3c3c3;
+	border-radius: 3px;
+}
+
+.edit-btn .l-btn-text{
+	line-height: 24px\9;
+	_line-height: 24px;
+}
+
+a.edit-btn:hover{
+	height: 28px;
+	line-height: 26px;
+	min-width: 90px;
+	/* margin: 0 10px; */
+	border: solid 1px #aaa;
+	border-radius: 3px;
+}
+		
+.search-panel-container{
+	margin: 10px 0;
+}
+
+.search-panel{
+	width: 100%;
+	height: 60px;
+	padding: 0 10px;
+}
+
+.search-panel table{
+	width: 100%;
+	height: 100%;
+}
+
+.search-btn{
+	height: 28px;
+	line-height: 26px;
+	min-width: 90px;
+	width: 90px\9;
+	_width: 90px;
+	/* margin: 0 10px; */
+	border: solid 1px #ccc;
+	border-radius: 3px;
+}
+
+.search-btn .l-btn-text{
+	line-height: 24px\9;
+	_line-height: 24px;
+}
+
+.view-img-wrapper{
+	text-align: center;
+}
+
+.required-tip{
+	color: red;
+	font-size: 14px;
+}

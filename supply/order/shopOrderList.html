@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>订单管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+<style>
+    .search-grid-container table thead{
+        display: none;
+    }
+    .search-grid-container table .bui-grid-row{
+        background-color: #f5f5f5 !important;
+    }
+    .search-grid-container .inner-grid table thead{
+        display: table-header-group;
+    }
+    .search-grid-container .inner-grid table .bui-grid-row{
+        background-color: #fff !important;
+    }
+    .search-grid-container span  .bui-grid-cascade-icon{
+        display: none;
+    }
+</style>
+
+<body style="overflow-y:auto" id="jumpHere">
+<div class="content bodyer">
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">系统订单号：</label>
+                    <div class="controls">
+                        <input id="scmShopOrderCode" type="text" name="scmShopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">销售渠道订单号：</label>
+                    <div class="controls">
+                        <input id="shopOrderCode" type="text" name="shopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">发货状态：</label>
+                    <div class="controls">
+                        <select id="supplierOrderStatus" name="supplierOrderStatus">
+                            <option value="">全部</option>
+                            <option value="1">待发货</option>
+                            <option value="6">部分发货</option>
+                            <option value="4">全部发货</option>
+                            <option value="2">发货异常</option>
+                            <option value="7">已取消</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">销售渠道：</label>
+                    <div class="controls">
+                        <select id="sellCode" name="sellCode">
+                            <option value="">全部</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">收货人：</label>
+                    <div class="controls">
+                        <input id="receiverName" type="text" name="receiverName" data-rules="{maxlength:128}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">店铺名称：</label>
+                    <div class="controls">
+                        <input id="shopName" type="text" name="shopName" data-rules="{maxlength:128}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">付款日期：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input class="calendar" type="text" id="startDate" name="startDate"/><label> - </label>
+                        <input class="calendar" type="text" id="endDate" name="endDate"/>
+                    </div>
+                </div>
+                <div class="form-actions span3">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset_btn" type="reset" class="button button-primary">重置</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+    <!-- <input style="margin-left: 20px;" type="button" id="import" value="订单导入"/> -->
+    <span id="import" style="padding: 5px 8px;border-radius: 3px; margin-left: 20px; cursor: pointer; border: solid 1px #428bca; background: #428bca;color: #fff" >订单导入</span>
+    <div class="search-grid-container" style="padding: 20px;">
+        <div id="grid">
+        </div>
+        <div id="bar" class="bui-grid"></div>
+    </div>
+</div>
+</body>
+</html>

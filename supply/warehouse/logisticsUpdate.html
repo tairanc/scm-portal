@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>编辑授权</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<script type="text/javascript">
+
+</script>
+
+<body style="overflow-y: scroll;">
+<div class="content detail">
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h3 class="pull-left"> 修改属性</h3>
+            <div class="pull-right">
+                <span class="logs-btn">操作日志</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="J_Form" action="" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>用户姓名：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="name" name="name" type="text"
+                               onkeydown="if(event.keyCode==13||event.keyCode == 32){event.keyCode=0;event.returnValue=false;}"
+                               data-rules="{required:true,maxlength:32}">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>手机号：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="phone" name="phone" type="text" readonly="readonly"
+                               data-rules="{required:true,maxlength:16, mobile:0}">
+                    </div>
+                </div>
+                <div class="row" id="userTypeDiv">
+                    <div class="control-group span10">
+                        <label class="control-label"><s>*</s>用户类型：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="userType" name="userType" type="text"
+                                    data-rules="{required:true}">请选择</select>
+                        </div>
+                    </div>                    
+
+                </div>
+                <div class="control-group" id="channelTypeDiv" style="margin-left:-19px;">
+                    <label class="control-label" style="width:145px;"><s>*</s>所属业务线及销售渠道：</label>
+                    <div class="controls" style="height: auto;vertical-align: inherit;line-height: 12px;" >
+                        <div id="grid" style="padding: 20px;width:60%;max-height:300px;overflow-y: scroll;margin-left:112px;margin-top:-47px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>角色：</label>
+                    <div class="controls" id="selectRole" style="height: auto;vertical-align: inherit;line-height: 12px;">
+                        <b style="line-height: 30px">请先选择用户类型</b>
+                    </div>
+
+                </div>
+                <div class="control-group" style="margin-top: 10px">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                <textarea id="remark" name="remark" class="control-row4 input-large"
+                          data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>状态：</label>
+                    <div class="controls">
+                        <label class="control-label radio" for="" style="text-align: left;">
+                            <input type="radio" class="radiosep" id="isValid" name="isValid" value="1" checked>启用</label>
+                            &nbsp;&nbsp;&nbsp;
+                        <label class="control-label radio" for="" style="text-align: left;">
+                            <input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">停用</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-actions span13 offset3">
+                        <button id="save_btn" type="button" class="button button-primary">保存</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="btn_list" type="button" class="button">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

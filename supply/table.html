@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>表格</title>
+    <script src="../js/util/head.js"></script>
+</head>
+<script src="../js/util/UploadExt.js"></script>
+<script src="../js/util/DynamicTable.js"></script>
+
+
+<script type="application/javascript">
+
+    BUI.use(['bui/form','bui/uploader'],function(Form, Uploader) {
+
+        var proxyAptitude = {"brandSubdivision":"品牌方","firstAgent":"一级代理","secondAgent":"二级代理","netGeneralAgent":"网络总代理","others":"其他"};
+
+        var columns = [
+            {title : '供应商编号',dataIndex :'supplierCode', visible : false},
+            {title : '品牌ID',dataIndex :'brandId', visible : false},
+            {title : '排序',dataIndex :'sort', visible : false},
+            {title : '品牌名称',dataIndex :'brandCode', width:'15%', elCls : 'center', editor : [{xtype :'text', rules:"{required:true, maxlength:5}"}]},
+            {title : '所属类目',dataIndex :'categoryCode', width:'20%', elCls : 'center', editor : [{xtype :'text', rules:"{required:true, maxlength:5}"}]},
+            {title : '所属类目2',dataIndex :'categoryCode', width:'20%', elCls : 'center', editor : [{xtype :'text', rules:"{required:true, maxlength:5}"}]},
+            {title : '代理资质',dataIndex :'proxyAptitudeId', width:'15%', elCls : 'center', editor : [{xtype :'select', items : proxyAptitude, rules:"{required:true}"}]},
+            {title : '资质有效期(开始)',dataIndex :'aptitudeValidDateStart', width:'8%', elCls : 'center', editor:[{xtype: 'date', rules:"{required:true}"}]},
+            {title : '资质有效期(截止)',dataIndex :'aptitudeValidDateEnd', width:'8%', elCls : 'center', editor:[{xtype: 'date', rules:"{required:true}"}]},
+            {title : '资质证明(最多3张)',dataIndex :'aptitudeCert', width:'15%', elCls : 'left', editor:[{xtype: 'upload', maxNum: 1, rules:{
+                //文的类型
+                ext: ['.png,.jpg,.jpeg,.bmp', '文件类型只能为{0}'],
+                //上传的最大个数
+                max: [1, '文件的最大个数不能超过{0}个'],
+                //文件大小的最小值,这个单位是kb
+                minSize: [1, '文件的大小不能小于{0}KB'],
+                //文件大小的最大值,单位也是kb
+                maxSize: [1024, '文件大小不能大于1M']
+            }}]}
+            ];
+
+
+        var props = {
+            tableId: "table1",
+            render:"myTable",
+            columns:columns,
+            showLineNum:true,
+            sortField:'sort',
+            url:'/supply/data.json',
+            autoLoad : true,
+            uploader: {
+                text: '上传',
+                theme:"imageView",
+                url:$.scmServerUrl + 'qinniu/upload/supply',
+                delUrl:$.scmServerUrl + 'qinniu/delete/supply',
+                downloadUrl: $.scmServerUrl + 'qinniu/download',
+                batchDownloadUrl: $.scmServerUrl + 'qinniu/urls?thumbnail=1',
+                multiple : false,
+                imgShowWidth: 1200,
+                imgShowHeight: 800
+            },
+            imgShowWidth: 700,
+            imgShowHeight: 500,
+            up:true,
+            down:true,
+            del:true
+        };
+        var table = new DynamicTable(props);
+
+        $("#data").on('click',function () {
+            //table.load({});
+            console.log(table.getData())
+        });
+
+        $("#add").on('click',function () {
+            table.addRow();
+        });
+
+        var props2 = {
+            tableId: "table2",
+            render:"myTable2",
+            columns:columns,
+            showLineNum:true,
+            sortField:'sort',
+            url:'/supply/data.json',
+            autoLoad : true,
+            uploader: {
+                text: '上传',
+                theme:"imageView",
+                url:$.scmServerUrl + 'qinniu/upload/supply',
+                delUrl:$.scmServerUrl + 'qinniu/delete/supply',
+                downloadUrl: $.scmServerUrl + 'qinniu/download',
+                batchDownloadUrl: $.scmServerUrl + 'qinniu/urls?thumbnail=1',
+                multiple : false,
+                imgShowWidth: 1200,
+                imgShowHeight: 800
+            },
+            imgShowWidth: 700,
+            imgShowHeight: 500,
+            up:true,
+            down:true,
+            del:true
+        };
+        var table2 = new DynamicTable(props2);
+        $("#data2").on('click',function () {
+            //table.load({});
+            console.log(table2.getData())
+        });
+
+        $("#add2").on('click',function () {
+            //table2.addRow();
+            var record = {
+                "index":2,
+                "supplierCode": "22",
+                "brandId": "22",
+                "brandCode": "22",
+                "categoryCode": "22",
+                "proxyAptitudeId": "netGeneralAgent",
+                "aptitudeValidDateStart": "2017-05-10",
+                "aptitudeValidDateEnd": "2017-05-10",
+                "aptitudeCert": "supply/timg.jpg",
+                "sort":2
+            };
+            table2.delRow(record)
+        });
+
+        $("#uploadStatus").on('click',function () {
+            /*var uploadStatusFileds = $('input[name="uploadStatusFiled"]');
+            if(uploadStatusFileds.length > 0){
+                BUI.Message.Alert("文件正在上传,请确认上传完成后再提交!", "warning");
+                return false;
+            }*/
+            $.checkUploadStatus();
+        });
+
+
+
+
+    });
+
+
+</script>
+
+<body>
+    <div class="content" style="margin-top: 10px; margin-left: 10px;">
+        <div class="row">
+
+            <form id="J_Form" action="" class="form-horizontal">
+                <div id="myTable">
+
+                </div>
+                <br/>
+                <div id="uploadDiv">
+
+                </div>
+
+                <input id="uploadHidden" type="hidden"/>
+
+                <input type="button" class="button" id="data" value="查询"><input type="button" class="button" id="add" value="添加">
+
+            </form>
+
+        </div>
+
+
+
+
+        <div class="row">
+            <form id="J_Form2" action="" class="form-horizontal">
+                <div id="myTable2">
+
+                </div>
+                <br/>
+                <div id="uploadDiv2">
+
+                </div>
+
+                <input id="uploadHidden2" type="hidden"/>
+
+                <input type="button" class="button" id="data2" value="查询">
+                <input type="button" class="button" id="add2" value="提交">
+                <input type="button" class="button" id="uploadStatus" value="上传状态">
+
+            </form>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

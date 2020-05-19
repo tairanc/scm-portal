@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>供应商申请审批</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span7">
+                    <label class="control-label">供应商名称：</label>
+                    <div class="controls">
+                        <input type="text" id="supplierName" name="supplierName" data-rules="{maxlength:50}">
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">供应商编号：</label>
+                    <div class="controls">
+                        <input type="text" id="supplierCode" name="supplierCode"/>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">联系人：</label>
+                    <div class="controls">
+                        <input style="width: 150px;" id="contact" name="contact" type="text" data-rules="{maxlength:64}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="control-group span7">
+                    <label class="control-label">申请状态：</label>
+                    <div class="controls">
+                        <select id="applyStatus" name="applyStatus"></select>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">供应商性质：</label>
+                    <div class="controls">
+                        <select id="supplierKindCode" name="supplierKindCode"></select>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">更新日期：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input type="text" id="startDate" name="startDate" class="calendar"/>-
+                        <input type="text" id="endDate" name="endDate" class="calendar"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-actions span3">
+                        <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="reset" type="reset" class="button button-primary">重置</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="search-grid-container" style="padding: 20px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row">✚申请供应商</button>
+        <div id="grid">
+        </div>
+        <div id="bar" class="bui-grid"></div>
+    </div>
+</div>
+</body>
+</html>

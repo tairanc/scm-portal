@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>采购单审核</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+</style>
+
+<body>
+<div class="content detail">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">审核日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="control-group ">
+                    <label class="control-label">调拨单编号：</label>
+                    <div class="controls span8">
+                        <span id="allocateOrderCode" style="color:blue;line-height: 30px" ></span>
+                    </div>
+                    <label class="control-label auditStatus">审核状态：</label>
+                    <div class="controls span8 auditStatus">
+                        <span id="statusTip" style="color:blue;line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label">调出仓库：</label>
+                    <div class="controls span8">
+                        <span id="outWarehouseName" style="line-height: 30px"  ></span>
+                    </div>
+                    <label class="control-label">调入仓库：</label>
+                    <div class="controls span8">
+                        <span id="inWarehouseName" style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <span id="memo" style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                <!-- <div class="control-group ">
+                    <label class="control-label">采购总金额：</label>
+                    <div class="controls span8">
+                        <span id="totalFee"style="line-height: 30px" ></span><span id="totalFeeTip"style="line-height: 30px" ></span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="panel panel-info" style="line-height:30px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">收发件方信息</h3>
+            </div>
+            <div class="panel-body" style="margin-top:15px;">
+                <div class="control-group">
+                    <div class="controls span5">
+                        <label class="control-label">发件人：</label>
+                        <span id="sender"></span>
+                    </div>
+                    <div class="control-group span6">
+                            <label class="control-label">发件方手机：</label>
+                            <span id="senderMobile"></span>
+                    </div>
+                    
+                    <div class="controls span10">
+                        <label class="control-label">发件方省份.城市：</label>
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="senderProvince"></span>&nbsp;<span id="senderCity"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group span10">
+                        <label class="control-label">发件方详细地址：</label>
+                        <span id="senderAddress"></span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls span5">
+                        <label class="control-label">收件人：</label>
+                        <span id="receiver"></span>
+                    </div>
+
+                    <div class="control-group span6">
+                            <label class="control-label">收件方手机：</label>
+                            <span id="receiverMobile"></span>
+                    </div>
+
+                    <div class="controls span10">
+                        <label class="control-label">收件方省份.城市：</label>
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="receiverProvince"></span>&nbsp;<span id="receiverCity"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group span10">
+                        <label class="control-label">收件方详细地址：</label>
+                        <span id="receiverAddress"></span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div style="height: 15px"></div>
+                <div class="search-grid-container" style="margin-right: 20px;">
+                    <!--<button id="relevance" type="button" class="button button-primary">选择采购商品</button>-->
+                    <div id="grid">
+                    </div>
+                </div>
+                <div class="search-grid-container" style="margin-right: 50px;margin-left: 50px; margin-top: 10px">
+                    <div id="Items">
+                    </div>
+                    <input name="gridValue" id="gridValue" type="hidden">
+                    <span id="itemsMsg" style="color: red"style="line-height: 30px" ></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="audit" class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">审核意见</h3>
+            </div>
+            <div class="panel-body auditResult">
+                <label class="control-label">审核结果：</label>
+                <div class="controls span8 grey">
+                    <span id="statusResult" style="line-height: 30px;"></span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="search-grid-container" style="margin-bottom: 20px;">
+                    <label class="control-label">审核意见：</label>
+                    <div class="controls  control-row-auto">
+                        <!-- <span id="auditOpinion" style="line-height: 30px;"></span> -->
+                        <textarea style="width: 630px;" id="auditOpinion" name="auditOpinion" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="commit_btn" type="button" class="button button-primary">通过</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="save_btn" type="button" class="button button-primary">驳回</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+        <input id="status" name="status" type="hidden">
+        <input id="id" name="id" type="hidden"><!--  主键ID -->
+    </form>
+
+</div>
+</body>
+</html>

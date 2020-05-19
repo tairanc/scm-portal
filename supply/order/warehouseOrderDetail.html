@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>订单详情</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    .textContent {
+
+    }
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">供应商订单编号：</label>
+                        <div class="controls grey">
+                            <span id="warehouseOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">供应商名称：</label>
+                        <div class="controls grey">
+                            <span id="supplierName" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">店铺订单编号：</label>
+                        <div class="controls grey">
+                            <span id="shopOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">店铺名称：</label>
+                        <div class="controls grey">
+                            <span id="shopName" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="control-group span11">
+                        <label class="control-label">主订单编号：</label>
+                        <div class="controls grey">
+                            <span id="platformOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">下单时间：</label>
+                        <div class="controls grey">
+                            <span id="payTime" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">商品总数量：</label>
+                        <div class="controls grey">
+                            <span id="itemsNum" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">商品总金额(元)：</label>
+                        <div class="controls grey">
+                            <span id="payment" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-info" style="margin-top: -10px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left"> 商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div id="grid">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+
+    </form>
+
+
+</div>
+</body>
+</html>

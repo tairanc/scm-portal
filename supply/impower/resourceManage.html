@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资源管理</title>
+    <script src="../../js/util/head.js"></script>
+
+</head>
+
+<body style="overflow-y: auto">
+<div class="content bodyer">
+    <!-- 基本操作页 ================================================== -->
+
+    <div class="row">
+        <br/><br/>
+        <div class="form-actions span24" style="margin-left: 50px;">
+            <input id="add_btn" type="button" style="outline:none" class="button button-primary" value="新增一级资源"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <!--<input id="edit_sort_btn" type="button" style="outline:none" class="button button-primary" value=" 编辑排序"/>-->
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="expand_btn" type="button" style="outline:none" class="button button-primary" value="展开所有"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="close_btn" type="button" style="outline:none" class="button button-primary" value="收起所有"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="search-grid-container" style="margin-right: 50px;margin-left: 50px; margin-top: 10px">
+        <div id="grid">
+        </div>
+    </div>
+    <div class="row">
+        <div style="margin-right: 50px;margin-left: 50px">
+            <div id="t1" style="width: 100%">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--添加的DIV-->
+<div id="add_content" style="display: none">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label"><s>*</s>资源名称：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="name" name="name" type="text"
+                       data-rules="{maxlength:100,required:true}">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><s>*</s>上级资源：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="alise" name="alise" type="text" data-rules="{maxlength:64}"
+                       placeholder="无" disabled="disabled"/>
+            </div>
+        </div>
+        <!--<div class="control-group">-->
+        <!--<label class="control-label"><s>*</s>分类编码：</label>-->
+        <!--<div class="controls">-->
+        <!--<input style="width: 200px;" id="categoryCode" name="categoryCode" type="text" data-rules="{required:true,maxlength:40}"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="control-group">
+            <label class="control-label"><s>*</s>Url：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="url" name="url" type="text"
+                       data-rules="{maxlength:128}">
+            </div>
+        </div>
+
+
+        <!--<div class="control-group">-->
+            <!--<label class="control-label"><s>*</s>方法：</label>-->
+            <!--<div class="controls">-->
+                <!--<input style="width: 200px; " id="method" name="method" type="text" data-rules="{maxlength:4,required:true}"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="control-group" id="belongDiv">
+            <label class="control-label"><s>*</s>所属角色：</label>
+            <div class="controls">
+                <label class="control-label radio" style="text-align: left; for="belong"><input type="radio" id="belong" name="belong" value="1">全局角色</label>&nbsp;&nbsp;&nbsp;
+                <label class="control-label radio" style="text-align: left; for="belong"><input type="radio" id="belong2" name="belong" value="2">渠道角色</label>
+            </div>
+        </div>
+
+        <div class="control-group" id="operationTypeDiv">
+            <label class="control-label"><s>*</s>操作类型：</label>
+            <div class="controls">
+                <label class="control-label radio control-label-small radio" style="text-align: left; for="operationType1"><input type="radio" id="operationType1" name="operationType" value="GET">查询</label>
+                <label class="control-label radio control-label-small radio" style="text-align: left; for="operationType2"><input type="radio" id="operationType2" name="operationType" value="POST">新增</label>
+                <label class="control-label radio control-label-small radio" style="text-align: left; for="operationType3"><input type="radio" id="operationType3" name="operationType" value="PUT">修改</label>
+                <label class="control-label radio control-label-small radio" style="text-align: left; for="operationType4"><input type="radio" id="operationType4" name="operationType" value="DELETE">删除</label>
+            </div>
+        </div>
+        <!--<div class="control-group" id="last">
+            <label class="control-label"><s>*</s>状态：</label>
+            <div class="controls">
+                <label class="control-label radio" style="text-align: left; for="isValid"><input type="radio" id="isValid" name="isValid" value="1">启用</label>&nbsp;&nbsp;&nbsp;
+
+                <label class="control-label radio" style="text-align: left; for="isValid2"><input type="radio" id="isValid2" name="isValid" value="0">停用</label>
+
+            </div>
+        </div>-->
+
+
+    </form>
+</div>
+
+</body>
+</html>

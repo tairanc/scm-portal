@@ -1,0 +1,48 @@
+<script src="../../js/supply/supplier/supplierBrandSelect2.js"></script>
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="doc-content span24">
+            <div class="span24" style="text-align: center;padding-bottom: 10px;">
+                <input type="text" id="categoryBrandsSearch" style="width: 215px;margin-left:-52px;">
+                <label  style="margin-left:20px;font-size: 14px;padding: 4px 12px;" id="categoryBrandsSearchBtn" class="button button-mini button-primary">查询</label>
+                <script>
+                    $(function(){
+                        $("#categoryBrandsSearchBtn").bind("click",function(){
+                            var keywords=$("#categoryBrandsSearch").val();
+                            if(keywords!=""){
+                                $("#brand .bui-list-item").hide();
+                                var keyValue = $(".bui-list-item:contains('"+keywords+"')").length;
+                                if(keyValue==0){
+                                    $("#brand ul").hide();
+                                    if($("#message").length==0){
+                                        $("#brand").append('<span id="message" style="font-size:14px;color:red;font-weight:bold;margin-top:10px;">根据已选"代理类目"查询不到结果!</span>')
+                                    }else{
+                                        
+                                    } 
+                                }else{
+                                    $("#brand ul").show();
+                                    $("#message").remove();
+                                    $("#brand .bui-list-item:contains('"+keywords+"')").show();
+                                }
+                            }else{
+                                $("#brand ul").show();
+                                $("#message").hide();
+                                $("#brand .bui-list-item").show();
+                            }
+                        });
+                    });
+                </script>
+            </div>
+            <div class="row-fluid detail-row" style="max-height:400px;overflow: auto;">
+                <div id="brand"></div>
+            </div>
+            <div class="row-fluid">
+                <span style="background-color: inherit; font-size: 15px; font-weight: bolder;">当前选择：</span>
+                <span style="background-color: inherit; font-size: 14px;word-wrap:break-word;" id="brandNames"></span>
+                <input type="hidden" id="categoryBrands"/>
+                <!--<input type="hidden" id="categoryId"/>-->
+            </div>
+        </div>
+    </div>
+</div>

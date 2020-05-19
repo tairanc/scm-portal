@@ -1,0 +1,56 @@
+<!--js主函数-->
+<script src="../../js/supply/category/propertyView.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $.propertyView.init();
+    });
+
+</script>
+
+<div class="search-grid-container">
+    <form id="sel_Form">
+        <div class="row">
+            <div class="control-group span0">
+                <label class="control-label">属性查询：</label>
+                <input id="name" type="text" name="name"  onkeydown="if(event.keyCode==13){event.keyCode=0;event.returnValue=false;}"/>
+                <input id="sel_btn" type="button" class="button button-primary" value="查询"/>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="row" style="margin-top: 5px;margin-left: 40px;margin-right: 40px ;">
+    <table style="width: 100%">
+        <td width="210px" align="center">属性名称</td>
+        <td width="210px" align="center">属性值</td>
+    </table>
+</div>
+
+<div class="row" id="propertyView" style="margin-left: 40px;margin-right: 40px;" >
+
+    <div id="propertyName" class="control-group"
+         style="border: 1px solid  black;width:200px;height: 250px;overflow-y: auto;float: left ;padding: 5px">
+
+    </div>
+    <div id="propertyValue" class="control-group"
+         style="border: 1px solid  black;width: 200px;height: 250px;overflow-y: auto; float: right;padding: 5px">
+
+    </div>
+</div>
+<input type="hidden" id="propertyRecord"/>
+<div class="row" style="text-align: center">
+    <div class="form-actions  offset3" style="margin-left: 20px;">
+        <button id="select_btn_property" type="button" class="button button-primary"
+                style="margin-right: 40px;margin-top: 10px">确定
+        </button>
+        <button id="btn_back_property" type="button" class="button"
+                style="margin-right: 40px;margin-top: 10px">取消
+        </button>
+    </div>
+</div>
+
+<div id="img" style="display: none">
+
+</div>

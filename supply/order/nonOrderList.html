@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>拆单异常管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span7">
+                    <label class="control-label">拆单异常编号：</label>
+                    <div class="controls">
+                        <input id="exceptionOrderCode" type="text" name="exceptionOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span5">
+                    <label class="control-label">系统订单号：</label>
+                    <div class="controls">
+                        <input id="scmShopOrderCode" type="text" name="scmShopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">销售渠道订单号：</label>
+                    <div class="controls">
+                        <input id="shopOrderCode" type="text" name="shopOrderCode" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="control-group span7">
+                    <label class="control-label">异常类型：</label>
+                    <div class="controls">
+                        <select id="exceptionType" name="exceptionType">
+                            <option value="">全部</option>
+                            <option value="1">缺货退回</option>
+                            <option value="2">缺货等待</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span7">
+                    <label class="control-label">状态：</label>
+                    <div class="controls">
+                        <select id="status" name="status">
+                            <option value="">全部</option>
+                            <option value="10">待了结</option>
+                            <option value="11">已了结</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group span7">
+                    <label class="control-label">收货人：</label>
+                    <div class="controls">
+                        <input id="receiverName" type="text" name="receiverName" data-rules="{maxlength:32}"/>
+                    </div>
+                </div>
+            <div class="row-fluid">
+                <div class="control-group span5">
+                    <label class="control-label">生成日期：</label>
+                    <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                        <input type="text" id="startDate" name="startDate" class="calendar"/>-
+                        <input type="text" id="endDate" name="endDate" class="calendar"/>
+                        <div id="showMsgDiv" style="display:none;">
+                            <span class="estate error"><span class="x-icon x-icon-mini x-icon-error">!</span><em style="font-style:normal;color:red;">结束日期不能小于起始日期！</em></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions span3" style="float:right">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>                                     
+        </form>
+    </div>
+
+
+    <div id="grid" style="padding: 20px;" style="width:99%">
+    </div>
+    <div id="bar" class="bui-grid" style="width:99%"></div>
+
+</div>
+</body>
+</html>

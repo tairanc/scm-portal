@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>物流公司管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row show-grid row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">物流公司名称：</label>
+                    <div class="controls">
+                        <input id="logisticsCorporationName" name="logisticsCorporationName" type="text" data-rules="{maxlength:100}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">物流公司编号：</label>
+                    <div class="controls">
+                        <input id="logisticsCode" name="logisticsCode" type="text" data-rules="{maxlength:16}"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">状态：</label>
+                    <div class="controls">
+                        <select style="width: 150px;" id="isValid" name="isValid">
+                            <option value="">请选择</option>
+                            <option value="0">停用</option>
+                            <option value="1">启用</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">物流公司类型：</label>
+                    <div class="controls">
+                        <select style="width: 150px;" 
+                        id="logisticsCorporationType" 
+                        name="logisticsCorporationType">
+                            <option value="">全部</option>
+                            <option value="0">快递企业</option>
+                            <option value="1">货运企业</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row show-grid">
+                <div class="form-actions span4 offset22">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="search-grid-container" style="padding: 20px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row">新增物流公司</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <button id="role_btn" type="button" class="button button-primary detail-row">角色管理</button> -->
+        <div id="grid">
+        </div>
+        <div id="bar" class="bui-grid"></div>
+    </div>
+</div>
+
+<div id="externalItemsDiv" style="display: none">
+
+    <div class="row">
+        <div>
+            <form id="J_Form2" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row">
+                    <div class="control-group span19">
+                        <label class="control-label">物流公司编号：</label>
+                        <div class="controls">
+                            <input id="logisticsCode2" type="text" name="logisticsCode2" style="width: 120px;" data-rules="{maxlength:5,minlength:1}" disabled="true" placeholder="保存后自动生成" />
+                        </div>
+                        <div class="pull-right">
+                            <span class="logs-btn" id="showLogs">操作日志</span>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="row">
+                    <div class="control-group span10">
+                        <label class="control-label"><s>*</s>物流公司名称：</label>
+                        <div class="controls">
+                             <input id="logisticsCorporationName2" type="text" name="logisticsCorporationName2" style="width: 120px;" data-rules="{required:true,maxlength:100}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span10">
+                        <!-- <label class="control-label"><s>*</s>物流公司编码：</label> -->
+                        <!-- <div class="controls">
+                            <input id="logisticsCorporationCode2" type="text" name="logisticsCorporationCode2" style="width: 120px;" data-rules="{required:true,maxlength:10}"/>
+                        </div> -->
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="control-group span10">
+                        <label class="control-label"><s>*</s>物流公司类型：</label>
+                        <div class="controls">
+                            <select id="logisticsCorporationType2" name="logisticsCorporationType2" style="width: 147px;">
+                                <!-- <option value="">全部</option> -->
+                                <option value="0">快递企业</option>
+                                <option value="1">货运企业</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group span10">
+                        <label class="control-label">联系人：</label>
+                        <div class="controls">
+                            <input id="contacts2" type="text" name="contacts2" style="width: 120px;" data-rules="{maxlength:20}"/>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="control-group span10">
+                        <label class="control-label">联系人电话：</label>
+                        <div class="controls">
+                            <input id="contactsNumber2" type="text" name="contactsNumber2" style="width: 120px;" data-rules="{phone:0}"/>                            
+                        </div>
+                    </div>
+                    <div class="control-group span10">
+                        <label class="control-label"><s>*</s>状态：</label>
+                        <div class="controls">
+                            <label class="control-label radio" for="" style="text-align: left;">
+                            <input type="radio" class="radiosep" id="isValid2" name="isValid2" value="1" checked>启用
+                            </label>
+                            <label class="control-label radio" for="" style="text-align: left;">
+                                <input type="radio" class="radiosep" id="isValid3" name="isValid2" value="0">停用
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label">备注：</label>
+                        <div class="controls">
+                            <input id="remark" type="text" name="remark" style="width: 420px;" data-rules="{maxlength:200}"/>
+                        </div>
+                    </div>                   
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="search-grid-container" id="overflow">
+        <div id="grid2" style="height:250px;overflow-y:scroll;overflow-x:hidden;display: none;">
+        </div>
+        <div id="bar2" class="bui-grid" style="padding-bottom: 20px;min-height:10px;"></div>
+    </div>
+
+</div>
+</body>
+</html>

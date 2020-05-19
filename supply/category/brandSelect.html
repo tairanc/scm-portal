@@ -1,0 +1,33 @@
+<script src="../../js/supply/category/brandSelect.js"></script>
+
+<div class="search-grid-container">
+    <form id="sel_Form">
+        <div class="row">
+            <div class="control-group span0">
+                <label class="control-label">品牌名称：</label>
+                <input id="name" type="text" name="name"  onkeydown="if(event.keyCode==13){event.keyCode=0;event.returnValue=false;}"/>
+                <input id="sel_btn" type="button" class="button button-primary" value="查询"/>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div style="margin-top: 20px">
+    <div id="brandList"></div>
+    <div id="bar" class="bui-grid" style="min-height:10px;"></div>
+</div>
+
+<div class="row" style="margin-top: 10px;text-align:right;">
+    <div class="form-actions  offset3" style="margin-left: 20px;margin-top: 10px">
+        <button id="select_btn_brand" type="button" class="button button-primary"
+                style="margin-right: 20px;margin-top: 20px">确定
+        </button>
+        <button id="btn_back" type="button" class="button"
+                style="margin-right: 20px;margin-top: 20px">取消
+        </button>
+    </div>
+</div>
+
+

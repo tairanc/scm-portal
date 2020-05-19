@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>角色修改</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+<body style="overflow-y: auto">
+<div class="content detail">
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h3 class="pull-left"> 基本信息</h3>
+            <div class="pull-right">
+                <span class="logs-btn">操作日志</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="J_Form" action="" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>角色名称：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="name" name="name" type="text" data-rules="{required:true,maxlength:64}">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>角色类型：</label>
+                    <div class="controls">
+                        <div id="selectRoleType">
+                            <select style="width: 200px;" id="roleType" name="roleType" data-rules="{required:true}"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-group" style="height: 400px">
+                        <label class="control-label"><s>*</s>角色权限：</label>
+                        <div class="controls">
+                            <div style="overflow-y: scroll;overflow-x: scroll;height: 380px;width: 320px;">
+                                <ul id="gylZtree" class="ztree"></ul>
+                            </div>
+                            <input style="width: 200px;" id="roleJurisdiction" name="roleJurisdiction" type="hidden" data-rules="{maxlength:2048}"/>
+                            <span style="color: red" id="msg"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea id="remark" name="remark" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>状态：</label>
+                    <div class="controls">
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid" name="isValid" value="1" checked>启用</label>&nbsp;&nbsp;&nbsp;
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">停用</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-actions span13 offset3">
+                        <button id="save_btn" type="button" class="button button-primary">保存</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="btn_list" type="button" class="button">取消</button>
+                    </div>
+                </div>
+                <input id="id" name="id" type="hidden"><!--  主键ID -->
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

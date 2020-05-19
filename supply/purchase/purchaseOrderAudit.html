@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>采购单审核</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+</style>
+
+<body>
+<div class="content detail">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">审核日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="control-group ">
+                    <label class="control-label">采购单编号：</label>
+                    <div class="controls span8">
+                        <input style="width: 200px;border: 0px" id="purchaseOrderCode" name="purchaseOrderCode" type="text" readonly>
+                    </div>
+                    <label class="control-label">审核状态：</label>
+                    <div class="controls span8">
+                        <span id="statusTip" style="color:blue;line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>供应商名称：</label>
+                    <div class="controls span8">
+                        <span id="supplierName"style="line-height: 30px"  ></span>
+                        <!--<input style="width: 200px;border: 0px"  id="supplierName" name="supplierName" type="text" readonly>-->
+                    </div>
+                    <label class="control-label">采购合同编号：</label>
+                    <div class="controls span8">
+                        <span id="contractCode"style="line-height: 30px" ></span>
+                        <!--  <input style="width: 200px;"  id="contractCode" name="contractCode" type="text" readonly/>-->
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>采购类型：</label>
+                    <div class="controls span8">
+                        <span id="purchaseTypeName"style="line-height: 30px" ></span>
+                        <!--<input style="width: 200px;"  id="purchaseTypeName" name="purchaseTypeName" type="text" readonly/>-->
+                    </div>
+                    <label class="control-label"><s>*</s>付款方式：</label>
+                    <div class="controls span8">
+                        <span id="payTypeName"style="line-height: 30px" ></span>
+                        <!--<input style="width: 130px;"  id="payTypeName" name="payTypeName" type="text" readonly/>-->
+                        <input id="payType" name="payType" type="hidden"/>
+                        <div id="paymentProportionDiv" style="float: right" hidden>
+                            <span>付款比例：</span>
+                            <span id="paymentProportion"style="line-height: 30px" ></span><span>%</span>
+                            <!--<input style="width: 50px"  id="paymentProportion" name="paymentProportion" type="text" placeholder="正数XX.X"><span>%</span>-->
+                            <!--<div>
+                                <span id="msgTip" style="margin-left: 67px;color: red"style="line-height: 30px" ></span>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>归属采购组：</label>
+                    <div class="controls span8">
+                        <span id="purchaseGroupName"style="line-height: 30px" ></span>
+                    </div>
+                    <label class="control-label"><s>*</s>归属采购人：</label>
+                    <div class="controls span8">
+                        <span id="purchasePerson"style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>币制：</label>
+                    <div class="controls span8">
+                        <span id="currencyTypeName"style="line-height: 30px" ></span>
+                    </div>
+                    <label class="control-label"><s>*</s>收货仓库：</label>
+                    <div class="controls span8">
+                        <span id="warehouseName"style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>收货人：</label>
+                    <div class="controls span8 grey">
+                        <span id="receiver" style="line-height: 30px"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>收货人手机：</label>
+                    <div class="controls span8 grey">
+                        <span id="receiverNumber" style="line-height: 30px"></span>
+                    </div>
+                </div>
+                <!-- <div class="control-group ">
+                    <label class="control-label"><s>*</s>收货地址：</label>
+                    <div class="controls span20">
+                        <span id="receiveAddress"style="line-height: 30px" ></span>
+                    </div>
+                </div> -->
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>运输费用承担方：</label>
+                    <div class="controls span8">
+                        <span id="transportFeeDestIdName"style="line-height: 30px" ></span>
+                    </div>
+                    <label class="control-label">提运单号：</label>
+                    <div class="controls span8">
+                        <span id="takeGoodsNo"style="line-height: 30px" ></span>
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>要求到货日期：</label>
+                    <div class="controls span8">
+                        <span id="requriedReceiveDate"style="line-height: 30px" ></span>
+                        <!-- <input style="width: 200px;"  id="requriedReceiveDate" name="requriedReceiveDate" type="text" data-rules="{required:true,maxlength:64}"  class="calendar"/>-->
+                    </div>
+                    <label class="control-label"><s>*</s>截止到货日期：</label>
+                    <div class="controls span8">
+                        <span id="endReceiveDate"style="line-height: 30px" ></span>
+                        <!-- <input style="width: 200px;"  id="endReceiveDate" name="endReceiveDate" type="text" data-rules="{required:true,maxlength:64}"  class="calendar"/>
+                     </div>-->
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>处理优先级：</label>
+                    <div class="controls span8">
+                        <span id="handlerPriorityName"style="line-height: 30px" ></span>
+                        <!--<select style="width: 200px;"  id="handlerPriority" name="handlerPriority"  data-rules="{required:true}">
+                        </select>-->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <span id="remark"style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>采购总金额：</label>
+                    <div class="controls span8">
+                        <span id="totalFee"style="line-height: 30px" ></span><span id="totalFeeTip"style="line-height: 30px" ></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info" style="line-height:30px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">发件方信息</h3>
+            </div>
+            <div class="panel-body" style="margin-left:40px;margin-top:15px;">
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>发件人：</label>
+                    <div class="controls span8 grey">
+                        <span id="sender"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>发件方省份.城市：</label>
+                    <div class="controls span8">
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="senderProvince"></span>&nbsp;<span id="senderCity"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>发件方手机：</label>
+                    <div class="controls span8 grey">
+                        <span id="senderNumber"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>发件方详细地址：</label>
+                    <div class="controls span8 grey">
+                        <span id="senderAddress"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div style="height: 15px"></div>
+                <div class="search-grid-container" style="margin-right: 20px;">
+                    <!--<button id="relevance" type="button" class="button button-primary">选择采购商品</button>-->
+                    <div id="grid">
+                    </div>
+                </div>
+                <div class="search-grid-container" style="margin-right: 50px;margin-left: 50px; margin-top: 10px">
+                    <div id="Items">
+                    </div>
+                    <input name="gridValue" id="gridValue" type="hidden">
+                    <span id="itemsMsg" style="color: red"style="line-height: 30px" ></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="audit" class="panel panel-info ">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">审核意见</h3>
+            </div>
+            <div class="panel-body">
+                <label class="control-label">审核结果：</label>
+                <div class="controls span8 grey">
+                    <span id="statusResult" style="line-height: 30px;"></span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="search-grid-container" style="margin-bottom: 20px;">
+                    <label class="control-label">审核意见：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea style="width: 630px;" id="auditOpinion" name="auditOpinion" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="commit_btn" type="button" class="button button-primary">通过</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="save_btn" type="button" class="button button-primary">驳回</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="btn_list" type="button" class="button">取消</button>
+        </div>
+        <input id="status" name="status" type="hidden">
+        <input id="id" name="id" type="hidden"><!--  主键ID -->
+    </form>
+
+</div>
+</body>
+</html>

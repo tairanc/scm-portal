@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>字典类型新增</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+<body>
+    <div class="content bodyer2">
+        <form id="J_Form" action="" class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label"><s>*</s>类型编码：</label>
+                <div class="controls">
+                    <input style="width: 200px;"  id="code" name="code" type="text" data-rules="{required:true,maxlength:32}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><s>*</s>类型名称：</label>
+                <div class="controls">
+                    <input style="width: 200px;"  id="name" name="name" type="text" data-rules="{required:true,maxlength:64}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">说明：</label>
+                <div class="controls  control-row-auto">
+                    <textarea id="description" name="description" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                </div>
+            </div>
+            <!--<div class="control-group">
+                <label class="control-label"><s>*</s>是否生效：</label>
+                <div class="controls">
+                    <label class="control-label radio" style="text-align: left; for=""><input type="radio" class="radiosep" id="isValid" name="isValid" value="1" checked>是</label>&nbsp;&nbsp;&nbsp;
+                    <label class="control-label radio" style="text-align: left; for=""><input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">否</label>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="form-actions span13 offset3">
+                    <button id="save_btn" type="button" class="button button-primary">提交</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset_btn" type="reset" class="button button-primary">重置</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="btn_list" type="button" class="button">返回</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>仓库信息管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">仓库名称：</label>
+                    <div class="controls">
+                        <input id="name" type="text" name="name" />
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">仓库状态：</label>
+                    <div class="controls">
+                        <select id="isValid" name="isValid">
+                            <option value="">请选择</option>
+                            <option value="1">启用</option>
+                            <option value="0">停用</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span9">
+                    <label class="control-label" style="width: 115px;">运营性质-运营类型：</label>
+                    <div class="controls">
+                        <select id="operationalNature" name="operationalNature">
+                            <option value="">全部</option>
+                            <option value="0">第三方仓库</option>
+                            <option value="1">自营仓库</option>
+                        </select>
+                        <select id="operationalType" name="operationalType" style="display: none;">
+                            <option value="">全部</option>
+                            <option value="0">纯仓库</option>
+                            <option value="1">门店仓 (普通门店)</option>
+                            <option value="2">门店仓 (无人门店)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions span3">
+                    <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset" type="reset" class="button button-primary">重置</button>
+                </div>
+            </div>           
+    </form>
+    </div>
+    <div class="search-grid-container" style="padding: 20px;">
+        <button id="add_btn" type="button" class="button button-primary detail-row">新增仓库</button>
+        <div id="grid" style="padding: 20px;" style="width:99%">
+        </div>
+        <div id="bar" class="bui-grid" style="width:99%"></div>
+    </div>
+    <!-- 添加新仓库弹出框 -->
+    <div id="addWarehouse" style="margin-top:10px;display:none;">
+        <form id="J_Form2" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div style="margin-left:40px;margin-top:30px;">
+                <div class="control-group " id="selectCode">
+                    <label class="control-label"><span style="color:red">*</span>仓库名称：</label>
+                    <select id="code" name="code" style="width:280px;">
+                        <option value="">请选择</option>
+                    </select>
+                </div>                
+            </div>
+            <div style="display:none; margin-left:180px;font-size:15px;font-weight:bold;" id="noneCode">无符合条件的仓库！</div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

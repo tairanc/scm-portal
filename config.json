@@ -1,0 +1,13 @@
+{
+  "showAllMenu": "false",
+  "dictSource": "1",
+  "addressSource": "1",
+  "jdAddressSource": "1",
+  "serverUrl": {
+    "dev": "http://dev-scm.fengdai.org/scm-web/,http://ucenter.fengdai.org/?appId=uc6c7f06e54ac77f87",
+    "pre": "http://10.200.146.8/scm-web/,http://uat-ucenter.tairancloud.com/?appId=uc6c7f06e54ac77f87",
+    "test": "http://10.200.143.62/scm-web/,http://ucenter.fengdai.org/?appId=uc6c7f06e54ac77f87",
+    "pro": "http://gyl.tairanmall.com/scm-web/,http://ucenter.trc.com/?appId=uc6c7f06e54ac77f87"
+  }
+
+}

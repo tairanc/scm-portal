@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>业务线修改</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+<body style="overflow-y: auto">
+<div class="content detail">
+    <div class="panel-header clearfix" style="margin-bottom:15px;border-bottom:1px solid #ccc">
+        <h3 class="pull-left" style="font-family:Microsoft YaHei;font-size:12px;font-weight:bold;">[&nbsp;<span id="warehouseName"></span>&nbsp;]&nbsp;货主管理</h3>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h5 class="pull-left" style="font-weight:bold;"> 货主信息</h5>
+        </div>
+        <div id="warehouse_notice" class="warehouse_notice">
+            <span style="margin-left:10px;">！注意：通知仓库状态非“通知成功”的 ①无法在“仓库信息管理->商品管理”中添加商品 ②无法在"采购管理->采购单管理"创建采购单时选择该仓库！</span>
+        </div>
+        <div class="panel-body">
+            <form id="J_Form" action="" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">货主ID：</label>
+                    <div class="controls">
+                        <input style="width: 200px;border: 0px" id="ownerId" name="ownerId" type="text" data-rules="{required:true,maxlength:32}" readonly>
+                        <!--<input style="width: 200px;"  id="code" name="code" type="text" readonly="readonly">-->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>货主名称：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="ownerName" name="ownerName" type="text" data-rules="{required:true,maxlength:50}" readonly>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>仓库货主ID：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="warehouseOwnerId" name="warehouseOwnerId" type="text" data-rules="{required:true,maxlength:50}">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea id="remark" style="width:500px;" name="remark" class="control-row4 input-large" data-rules="{maxlength:100}"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">通知仓库状态：</label>
+                    <div class="controls">
+                        <span id="ownerWarehouseState" name="ownerWarehouseState" style="line-height:30px;"></span>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="form-actions span13 offset3">
+                        <button id="notice_btn" type="button" class="button button-primary" style="display:none;">通知仓库</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="save_btn" type="button" class="button button-primary">保存</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="btn_list" type="button" class="button">返回</button>
+                    </div>
+                </div>
+                <input id="id" name="id" type="hidden"><!--  主键ID -->
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

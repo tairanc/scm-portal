@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>登录</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+    </style>
+    <script src="../js/util/head.js"></script>
+    <script src="../js/supply/loginCenter.js"></script>
+</head>
+<body>
+<iframe id="myFrame"
+        style="height:100%;width:100%;border:0;">
+</iframe>
+</body>
+<script>
+    setTimeout(function(){
+        document.getElementsByTagName('body')[0].style.height = window.innerHeight+'px';
+    },20);
+</script>
+<script>
+    if (!window.__LISTEN_LOGIN_IFRAME__) {
+        window.__LISTEN_LOGIN_IFRAME__ = true;
+        window.addEventListener('message', function(e) {
+            if (e.data && typeof e.data === 'string') {
+                try {
+                    var message = JSON.parse(e.data);
+                    if (message.type === 'LOGIN_SUCCESS') {
+                        // TODO: 登录成功
+                        var  token = message.data.token;
+                        document.cookie="token="+token + ";path=/";
+                        window.location.href="selectChannel.html";
+
+                    } else if (message.type === 'REGISTER_SUCCESS') {
+                        // TODO: 注册成功
+                    } else {
+                        // TODO: 非法操作
+                    }
+                } catch (e) {}
+            }
+        });
+    }
+</script>
+</html>

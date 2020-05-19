@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>订单导入</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+<style>
+.templateDown{
+  background-color: #bce8f1;
+  color: #31708f;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+</style>
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <div class="panel panel-info">
+        <div class="panel-header clearfix">
+            <h3 class="pull-left">注意事项</h3>
+        </div>
+        <div class="panel-body">
+            <h6 class="pull-left" style="font-weight:bold;">
+                1、导入文件格式必须与模板完全一致；<button class="templateDown">模板下载</button><br>
+
+                2、每次只能上传1个文件，每个文件不超过500条数据；<br>
+
+                3、暂不支持一件代发商品；<br>
+
+                <font color="red">4、订单导入成功后就会立即通知供应商/仓库发货，请谨慎；</font><br>
+
+                <font color="red">5、已经导入成功的订单暂不支持重复导入，请检查订单内容正确无误。</font><br>
+            </h6>
+        </div>
+    </div>
+
+     <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+         <div class="row-fluid">
+             <div class="control-group span6">
+                 <label class="control-label"><s>*</s>销售渠道：</label>
+                 <div class="controls">
+                     <select id="sellCode" name="sellCode">
+                         <option value="">全部</option>
+                     </select>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row-fluid">
+             <div class="control-group span6">
+                 <label class="control-label"><s>*</s>文件：</label>
+                 <div class="controls">
+                     <!-- <a href="javascript:;" class="file" id="excelFileHide">选择文件...
+                         <input class="file"  type="file" name="" >
+                     </a> -->
+                     <input  id="excelFile" type="file"   runat="server" />
+                 </div>
+             </div>
+         </div>
+
+           
+         <div class="row-fluid">
+             <div class="control-group span6">
+                 <label class="control-label">&nbsp;</label>
+                 <div class="controls">
+                     <input id="orderBtn" type="button" value="上传"/>
+                 </div>
+             </div>
+         </div>
+        </form>
+
+    <div id="errMsg" style="display:none;">
+        <div style="font-size:16px;font-weight:bold;margin-left:130px;width:300px;height:200px;margin-top:50;">导入成功<span id="sucNum" style="color:green"></span>条，导入失败<span id="failNum" style="color:red;"></span>条!
+        </div>
+    </div>
+
+</div>
+</div>
+<script>
+
+
+</script>
+</body>
+</html>

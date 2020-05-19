@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>入库通知单管理</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="http://g.alicdn.com/bui/bui/1.1.21/bui.js"></script>
+</head>
+
+<body style="overflow-y:scroll;">
+<div class="content detail">
+    <form id="J_Form" class="form-horizontal">
+
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">操作日志</span>
+                </div>
+            </div>
+            <div class="panel-body" style="width: 60%">
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>入库通知单编号：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="warehouseNoticeCode"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>当前状态：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="status"></span>
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>采购单编号：</label>
+                    <div class="controls span8">
+                        <a style="cursor: pointer;" class="grid-command control-text" id="purchaseOrderCode" onclick="openDetail()"></a>
+                    </div>
+                    <label class="control-label"><s>*</s>供应商名称：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="supplierName"></span>
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label">采购合同：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="contractCode"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>采购类型：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="purhcaseType"></span>
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>归属采购组：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="purchaseGroupName"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>归属采购人：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="purchasePersonName"></span>
+                    </div>
+                </div>
+
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>收货仓库：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="warehouseName"></span>
+                    </div>
+                    <label class="control-label">提运单号：</label>
+                    <div class="controls span8 grey">
+                        <input id="takeGoodsNo" name="takeGoodsNo" value="XXXXX">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>收货人：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="receiver"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>收货人手机：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="receiverNumber"></span>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>要求到货日期：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="requriedReceiveDate"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>截止到货日期：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="endReceiveDate"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls span8 grey">
+                        <span class="control-text" id="remark"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel0-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">发件方信息</h3>
+            </div>
+            <div class="panel-body">
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>发件人：</label>
+                    <div class="controls span8 grey">
+                        <span id="sender"class="control-text" ></span>
+                    </div>
+                    <label class="control-label"><s>*</s>发件方省份.城市：</label>
+                    <div class="controls span8 grey">
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="senderProvince" class="control-text"></span>&nbsp;<span id="senderCity" class="control-text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group ">
+                    <label class="control-label"><s>*</s>发件方手机：</label>
+                    <div class="controls span8 grey">
+                        <span id="senderNumber" class="control-text"></span>
+                    </div>
+                    <label class="control-label"><s>*</s>发件方详细地址：</label>
+                    <div class="controls span8 grey">
+                        <span id="senderAddress" class="control-text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">商品明细</h3>
+            </div>
+            <div style="height: 15px"></div>
+            <div class="search-grid-container" style="margin-right: 50px;margin-left: 50px; margin-top: 10px;overflow: auto;">
+                <div id="storeGrid" style="width: 1617px;">
+
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding: 20px 0">
+            <div style="text-align: center;">
+                <span id="buttonSpan"></span>
+                <button id="btnBack" type="button" class="button">返回</button>
+            </div>
+        </div>
+        <input id="" name="id" type="hidden">
+    </form>
+</div>
+</body>
+</html>

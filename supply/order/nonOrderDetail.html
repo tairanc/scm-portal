@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>异常单详情</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="http://g.alicdn.com/bui/bui/1.1.21/bui.js"></script>
+</head>
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    .textContent {
+
+    }
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn" id="orderLog">单据日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">拆单异常单编号：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="exceptionOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group span11">
+                        <label class="control-label">状态：</label>
+                        <div class="controls grey" style="line-height:30px;">
+                            <span id="status" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">销售渠道订单号：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="shopOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">店铺名称：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="shopName" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">系统订单号：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="scmShopOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">订单付款时间：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="payTime" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="control-group span11">
+                        <label class="control-label">收货人：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="receiverName" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">收货人联系方式：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="receiverMobile" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">收货人省.市.区：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="provinceCityArea" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11" style="display:none;" id="jingDongAdd">
+                        <label class="control-label">京东四级地址：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="jdAddress" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">收货人详细地址：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="receiverAddress" class="textContent"></span>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">异常类型：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="exceptionType" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">异常单生成时间：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="createTime" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-info" style="margin-top: -10px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">异常商品</h3>
+            </div>
+            <div class="panel-body">
+                <div id="grid">
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

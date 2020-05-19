@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<title>泰然供应链管理系统</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../js/util/head.js"></script>
+    <style type="text/css">
+        .dl-second-nav {
+            float: left;
+            width: 150px;
+            position: relative;
+            padding-top: 5px;
+            background-color: #f5f5f5;
+        }
+
+        
+        
+.scm-side-menu {
+  height: 100%;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 3px;
+}
+.scm-side-menu .bui-menu-title,
+.scm-side-menu .bui-menu-title s,
+.scm-side-menu .menu-second,
+.scm-side-menu .menu-second em {
+  background: url("../bui/assets/img/menu-500-188.png") -9999px -9999px no-repeat;
+}
+.scm-side-menu a {
+  color: #5c637b;
+  cursor: pointer;
+  outline: none;
+}
+.scm-side-menu a:hover {
+  color: #414da7;
+  text-decoration: none;
+}
+.scm-side-menu a:active {
+  color: #5c637b;
+}
+.scm-side-menu .bui-menu-item-collapsed .bui-menu {
+  display: none;
+}
+.scm-side-menu .bui-menu-item-collapsed .bui-menu-title s {
+  background-position: 0 -30px;
+}
+.scm-side-menu .menu-leaf {
+  /* outline: 0;
+  line-height: 20px; */
+}
+.scm-side-menu .menu-second a {
+  /* height: 20px; */
+  /* text-indent: 24px; */
+  /* overflow: hidden; */
+  /* margin-bottom: 5px; */
+  /* display: block; */
+}
+.scm-side-menu .menu-leaf a em {
+  display: block;
+  margin: 0 1px;
+  font-style: normal;
+  text-align: left;
+  overflow: hidden;
+  height: 19px;
+  line-height: 22px;
+  _line-height: 20px;
+}
+.scm-side-menu .menu-second em {  
+  font-style: normal;
+  height: 19px;
+  line-height: 22px;
+  _line-height: 20px;
+}
+.scm-side-menu .bui-menu-item-selected a {
+  color: #ffffff;
+  background-position: 0 -130px;
+}
+.scm-side-menu .bui-menu-item-selected {
+  background-position: right -100px;
+}
+.scm-side-menu .menu-second {
+  padding-top: 1px;
+  outline: 0;
+  cursor: pointer;
+}
+.scm-side-menu .menu-second div {
+  display: inline;
+}
+.scm-side-menu .menu-second .bui-menu {
+  margin-top: 5px;
+}
+.scm-side-menu .bui-menu-title-text {
+  /* float: left;
+  overflow: hidden;
+  height: 14px;
+  line-height: 14px;
+  display: block;
+  _margin-top: -2px; */
+}
+.scm-side-menu .bui-menu-title {
+  margin: 0 1px;
+  background-position: 0 15px;
+  height: 17px;
+  color: #636775;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 25px;
+  vertical-align: middle;
+  padding: 8px 0 5px 5px;
+}
+.scm-side-menu .bui-menu-title s {
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  display: block;
+  float: left;
+  margin-right: 5px;
+  margin-top: 1px;
+  background-position: 0 -71px;
+}
+
+ .scm-side-menu .x-tree-elbow-empty{
+    display:inline-block;
+    width: 10px;
+  }
+  .scm-side-menu .x-tree-elbow-expander{
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    background: url("../bui/assets/img/menu-500-188.png") 0 -71px no-repeat;
+  }
+ 
+
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <div class="dl-title">
+        <span class="lp-title-port"></span>泰然供应链管理系统</span>
+    </div>
+    <div class="dl-log">
+        <span class="dl-log-user" id="userPhone"></span>
+        <label style="cursor:pointer;" onclick="userAction()" title="退出系统" class="dl-log-quit" id="action"></label>
+    </div>
+</div>
+<div class="content">
+    <div class="dl-main-nav">
+        <div class="dl-inform">
+            <div class="dl-inform-title">贴心小秘书<s class="dl-inform-icon dl-up"></s></div>
+        </div>
+        <ul id="J_Nav" class="nav-list ks-clear">
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-home">首页</div>
+            </li>
+            <li style="float:right;margin-right:25px;text-align:center;margin-top:5px;" id="channelPart">
+                <span style="font-size:14px;color:#c1d5ec;">当前业务线：</span>
+                <select id="channelList">
+                </select>
+            </li>
+        </ul>
+    </div>
+    <!-- <ul id="t1" class="dl-tab-conten">
+    </ul> -->
+    <ul id="J_NavContent" class="dl-tab-conten">
+    </ul>
+   
+</div>
+</body>
+</html>

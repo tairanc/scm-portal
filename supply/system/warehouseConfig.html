@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>仓库管理</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+
+        <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+            <div class="row-fluid">
+                <div class="panel-header clearfix">
+                    <h3 class="pull-left">系统对接仓库配置</h3>
+                </div>
+                <div class="form-actions span7">
+                    <button id="save" type="button" class="button button-primary">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="search-grid-container" style="padding: 20px;">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td style="text-align:center;"><span style="color:red;">*</span>仓库名称</td>
+                <td style="text-align:center;"><span style="color:red;">*</span>是否通过奇门</td>
+                <td style="text-align:center;"><span style="color:red;">*</span>是否已对接商品信息通知接口</td>
+                <td style="text-align:center;"><span style="color:red;">*</span>是否已对接货主信息通知接口 </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="text-align:center;">
+                    <select id="warehouseName">
+                        <option value="">请选择</option>
+                    </select>
+                </td>
+                <td style="text-align:center;">
+                    是：<input type="radio" name="isThroughWms"  value="1" style="margin-right:10px;" id="qimenTrue"> 
+                    否：<input type="radio" name="isThroughWms"  value="0" id="qimenFalse"> 
+                    <span class="control-group span11" style="margin-left:10px;" id="qimenCode">
+                        <label class="control-label">仓库编码：</label>
+                        <input style="width: 150px;"  id="wmsWarehouseCode" name="wmsWarehouseCode" type="text" data-rules="{maxlength:50}">
+                    </span>
+                </td> 
+                <td style="text-align:center;">
+                    是：<input type="radio" name="isNoticeWarehouseItems"  value="1" style="margin-right:10px;" id="itemTrue"> 
+                    否：<input type="radio" name="isNoticeWarehouseItems"  value="0" id="itemFalse">
+                </td> 
+                <td style="text-align:center;">
+                    是：<input type="radio" name="isNoticeSuccess"  value="1" style="margin-right:10px;" id="noticeTrue"> 
+                    否：<input type="radio" name="isNoticeSuccess"  value="0" id="noticeFalse">
+                </td>                 
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

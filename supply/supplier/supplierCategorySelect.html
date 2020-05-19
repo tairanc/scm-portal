@@ -1,0 +1,33 @@
+<script src="../../js/supply/supplier/supplierCategorySelect.js"></script>
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="span24" style="text-align: center;padding-bottom: 10px;">
+                <input type="text" id="firstName" style="width: auto;">
+                <label id="selFirstBtn" class="button button-mini button-primary">查询</label>
+            </div>
+            <div id="gridFirst" class="span24"></div>
+        </div>
+        <div class="span8">
+            <div class="span24" style="text-align: center;padding-bottom: 10px;">
+                <input type="text" id="secondName" style="width: auto;">
+                <label id="selSecondBtn" class="button button-mini button-primary">查询</label>
+            </div>
+            <div id="gridSecond" class="span24"></div>
+        </div>
+        <div class="span8">
+            <div class="span24" style="text-align: center;padding-bottom: 10px;">
+                <input type="text" id="thirdName" style="width: auto;">
+                <label id="selThirdBtn" class="button button-mini button-primary">查询</label>
+            </div>
+            <div id="gridThird" class="span24"></div>
+        </div>
+    </div>
+    <div class="row-fluid" style="padding-top: 20px;">
+        <span style="background-color: inherit; font-size: 15px; font-weight: bolder;">当前选择：</span>
+        <span style="background-color: inherit; font-size: 14px;" id="selectCategory"></span>
+        <input type="hidden" id="categorys"/>
+        <input type="hidden" id="selectCategoryIds"/><!--已经存在的分页ID-->
+    </div>
+</div>

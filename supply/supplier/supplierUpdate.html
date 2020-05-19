@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>供应商修改</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    #normal3Cert {
+        margin-left: 110px;
+        width: 80%;
+    }
+
+    #normal3Cert table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #normal3Cert table tr {
+
+    }
+
+    #normal3Cert table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #threeCertUnion {
+        margin-left: 110px;
+        width: 80%;
+        /*display: none;*/
+    }
+
+    #threeCertUnion table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #threeCertUnion table tr {
+
+    }
+
+    #threeCertUnion table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #outerSupplier {
+        /*display: none;*/
+    }
+
+    .form-horizontal .controls {
+        margin-left: 5px;
+        float: left;
+        display: inline;
+        height: 48px;
+    }
+
+    input.calendar {
+        width: 70px;
+        margin-top: 10px;
+    }
+
+    /*#tabContent{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*margin-left: 10px;*/
+    /*margin-top: -25px;*/
+    /*}*/
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+
+        <input type="hidden" id="businessLicencePic" name="businessLicencePic"/>
+        <input type="hidden" id="organRegistraCodeCertificatePic" name="organRegistraCodeCertificatePic"/>
+        <input type="hidden" id="taxRegistrationCertificatePic" name="taxRegistrationCertificatePic"/>
+        <input type="hidden" id="legalPersonIdCardPic" name="legalPersonIdCardPic1"/>
+        <input type="hidden" id="legalPersonIdCardPic2" name="legalPersonIdCardPic2"/>
+        <input type="hidden" id="multiCertificateCombinePic" name="multiCertificateCombinePic"/>
+        <input type="hidden" id="legalPersonIdCardPic3" name="legalPersonIdCardPic1"/>
+        <input type="hidden" id="legalPersonIdCardPic4" name="legalPersonIdCardPic2"/>
+
+        <input type="hidden" id="selCategoryBrands"/>
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn" id="">操作日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+
+                <div class="row-fluid">
+                    <div class="control-group span10">
+                        <label class="control-label">供应商编号：</label>
+                        <div class="controls">
+                            <input type="text" id="supplierCode2" name="supplierCode" readonly="readonly">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="baseInfoDiv" class="">
+
+
+                    <div class="row-fluid">
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>供应商性质：</label>
+                            <div class="controls">
+                                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="supplierKindCode" name="supplierKindCode" value="purchase" checked disabled>采购</label>&nbsp;&nbsp;&nbsp;
+                                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="supplierKindCode2" name="supplierKindCode" value="oneAgentSelling" disabled>一件代发</label>
+                            </div>
+                        </div>
+                        <div id="interfaceIdDiv" style="display: none;" class="control-group span10">
+                            <label class="control-label"><s>*</s>供应商接口ID：</label>
+                            <div class="controls">
+                                <input style="width: 100px;" type="text" id="supplierInterfaceId" name="supplierInterfaceId" data-rules="{required:true,maxlength:32}">&nbsp;
+                                <span style="color:grey">说明：该内容请咨询技术人员</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row-fluid">
+
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>供应商类型：</label>
+                            <div class="controls">
+                                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="supplierTypeCode" name="supplierTypeCode" value="internalSupplier" checked>国内供应商</label>&nbsp;&nbsp;&nbsp;
+                                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="supplierTypeCode2" name="supplierTypeCode" value="overseasSupplier">海外供应商</label>
+                            </div>
+                        </div>
+                        
+
+
+                    </div>
+                    <div class="row-fluid">
+                        <div class="control-group">
+                            <label class="control-label"><s>*</s>可见业务线：</label>
+                            <div id="channelDiv" style="display: table;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+
+                        <div class="control-group span10">
+                            <label class="control-label">&nbsp;</label>
+                        </div>                   
+
+                    </div>
+                    <div class="row-fluid">
+                        <div class="control-group" style="margin-top:-30px;margin-left:9px;">
+                            <label class="control-label">&nbsp;</label>
+                            <label style="color: grey;">说明:勾选了的业务线能看到此供应商信息,未勾选的不可见</label>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="control-group span20">
+                            <label class="control-label"><s>*</s>供应商名称：</label>
+                            <div class="controls">
+                                <input style="width: 550px;" type="text" id="supplierName" name="supplierName" data-rules="{required:true, maxlength:50}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>联系人：</label>
+                            <div class="controls">
+                                <input type="text" id="contact" name="contact" data-rules="{required:true, maxlength:32}">
+                            </div>
+                        </div>
+                        <div class="control-group span10" style="margin-left:-163px;">
+                            <label class="control-label"><s>*</s>联系人电话：</label>
+                            <div class="controls">
+                                <input type="text" id="phone" name="phone" data-rules="{required:true, maxlength:20, phone:0}">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-----国内供应商------>
+                <div id="innerSupplier" data-depends="{'#supplierTypeCode:checked':['show','enable','clearErrors'],'#supplierTypeCode2:checked':['hide','disable']}" class="bui-form-group">
+
+                    <div id="innerDiv" class="bui-form-group">
+
+                        <div class="row-fluid">
+
+                            <div class="control-group span16">
+                                <label class="control-label">省份.城市.地区：</label>
+                                <div class="controls bui-form-group-select" data-type="city2">
+                                    <select style="width: auto;" id="province" name="province" class="input-small">
+                                        <option>省份</option>
+                                    </select>
+                                    <select style="width: auto;" id="city" name="city" class="input-small">
+                                        <option>城市</option>
+                                    </select>
+                                    <select style="width: auto;" id="area" name="area" class="input-small">
+                                        <option>区</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="addressDiv" class="row-fluid">
+                            <div class="control-group">
+                                <label class="control-label"><s>*</s>详细地址：</label>
+                                <div class="controls">
+                                    <input style="width: 550px;" type="text" id="address" name="address" data-rules="{required:true, maxlength:150}" data-messages="{required:'不能为空'}">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row-fluid">
+
+                            <div class="control-group">
+                                <label class="control-label"><font style="color: red" class="certCls">*</font>证件类型：</label>
+                                <div class="controls">
+                                    <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="certificateTypeId" name="certificateTypeId" value="normalThreeCertificate">普通三证</label>&nbsp;&nbsp;&nbsp;
+                                    <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="certificateTypeId2" name="certificateTypeId" value="multiCertificateUnion">多证合一</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!---普通三证div-->
+                <div id="normal3Cert" data-depends="{'#supplierTypeCode:checked':['show','enable','clearErrors'],'#certificateTypeId:checked':['show','enable','clearErrors'],'#certificateTypeId2:checked':['hide','disable'],'#supplierTypeCode2:checked':['hide','disable']}" class="bui-form-group">
+                    <table>
+                        <tr style="line-height:35px;font-weight:bold;">
+                            <td style="width: 15%">证件类型</td>
+                            <td style="width: 25%">证件号</td>
+                            <td style="width: 30%">证件有效期</td>
+                            <td style="width: 30%">证件图片</td>
+                        </tr>
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>营业执照</td>
+                            <td><input type="text" id="businessLicence" name="businessLicence" data-rules="{required:true, maxlength:64}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="controls bui-form-group" data-rules="{dateRange : true}" style="float: none;">
+                                    <input id="businessLicenceStartDate" name="businessLicenceStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="businessLicenceEndDate" name="businessLicenceEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="businessLicencePicUploader"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>组织机构代码证</td>
+                            <td><input type="text" id="organRegistraCodeCertificate" name="organRegistraCodeCertificate" data-rules="{required:true, maxlength:64}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="controls bui-form-group" data-rules="{dateRange : true}" style="float: none;">
+                                    <input id="organRegistraStartDate" name="organRegistraStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="organRegistraEndDate" name="organRegistraEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="organRegistraCodeCertificatePicUploader"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>税务登记证</td>
+                            <td><input type="text" id="taxRegistrationCertificate" name="taxRegistrationCertificate" data-rules="{required:true, maxlength:64}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="controls bui-form-group" data-rules="{dateRange : true}" style="float: none;">
+                                    <input id="taxRegistrationStartDate" name="taxRegistrationStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="taxRegistrationEndDate" name="taxRegistrationEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="taxRegistrationCertificatePicUploader"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>法人身份证</td>
+                            <td><input type="text" id="legalPersonIdCard" name="legalPersonIdCard" data-rules="{required:true, maxlength:64,idcard:0}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="controls bui-form-group" data-rules="{dateRange : true}" style="float: none;">
+                                    <input id="idCardStartDate" name="idCardStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="idCardEndDate" name="idCardEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="legalPersonIdCardPicUploader"></div>
+                                <div id="legalPersonIdCardPic2Uploader"></div>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div>
+                        <span>注：以上图片支持JPG、JPEG、BMP、PNG格式，大小不超过3M。</span>
+                    </div>
+
+                </div>
+
+
+                <!---多证合一-->
+                <div id="threeCertUnion" data-depends="{'#supplierTypeCode:checked':['hide','disable'],'#certificateTypeId2:checked':['show','enable','clearErrors'],'#certificateTypeId:checked':['hide','disable'],'#supplierTypeCode2:checked':['hide','disable']}" class="bui-form-group">
+                    <table>
+                        <tr style="line-height:35px;font-weight:bold;">
+                            <td style="width: 15%">证件类型</td>
+                            <td style="width: 25%">证件号</td>
+                            <td style="width: 30%">证件有效期</td>
+                            <td style="width: 30%">证件图片</td>
+                        </tr>
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>多证合一</td>
+                            <td><input type="text" id="multiCertificateCombineNo" name="multiCertificateCombineNo" data-rules="{required:true, maxlength:32}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="bui-form-group" data-rules="{dateRange : true}">
+                                    <input id="multiCertificateStartDate" name="multiCertificateStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="multiCertificateEndDate" name="multiCertificateEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+
+                            </td>
+                            <td>
+                                <div id="multiCertUnionPicUploader"></div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><font style="color: red" class="certCls">*</font>法人身份证</td>
+                            <td><input type="text" id="legalPersonIdCard2" name="legalPersonIdCard" data-rules="{required:true, maxlength:64,idcard:0}"></td>
+                            <td style=" padding-bottom: 10px;">
+                                <div class="bui-form-group" data-rules="{dateRange : true}">
+                                    <input id="idCardStartDate2" name="idCardStartDate" data-rules="{required:true}" data-messages="{required:'起始日期不能为空'}" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label>
+                                    <input id="idCardEndDate2" name="idCardEndDate" data-rules="{required:true}" data-messages="{required:'结束日期不能为空'}" class="input-small calendar" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="legalPersonIdCardPic3Uploader"></div>
+                                <div id="legalPersonIdCardPic4Uploader"></div>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div>
+                        <span>注：以上图片支持JPG、JPEG、BMP、PNG格式，大小不超过3M。</span>
+                    </div>
+
+                </div>
+
+
+                <!-----国外供应商------>
+                <div style="display:none" id="outerSupplier" data-depends="{'#supplierTypeCode2:checked':['show','enable','clearErrors'],'#supplierTypeCode:checked':['hide','disable']}" class="bui-form-group">
+
+                    <div class="row-fluid">
+
+                        <div class="control-group span11">
+                            <label class="control-label"><s>*</s>所在国家：</label>
+                            <div class="controls">
+                                <select style="width: 150px;" id="country" name="country" data-rules="{required:true}" data-messages="{required:'不能为空'}">
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="control-group ">
+                            <label class="control-label"><s>*</s>详细地址：</label>
+                            <div class="controls">
+                                <input style="width: 550px;" type="text" id="address2" name="address" data-rules="{required:true, maxlength:150}" data-messages="{required:'不能为空'}"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <br/>
+
+
+                <div class="row-fluid">
+                    <div class="control-group">
+                        <label class="control-label">备注：</label>
+                        <div class="controls  control-row-auto">
+                            <textarea id="remark" name="remark" class="control-row9 input-large" style="width: 550px;" data-rules="{maxlength:300}"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+
+                <div class="row-fluid">
+
+                    <div class="control-group">
+                        <label class="control-label"><s>*</s>是否生效：</label>
+                        <div class="controls">
+                            <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid" name="isValid" value="1" checked>启用</label>
+                            <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid2" name="isValid" value="0">停用</label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left"> 其他信息</h3>
+            </div>
+        </div>
+        <div class="panel-body" style="width: auto">
+            <div id="tab">
+                <!--<ul>-->
+                    <!--<li class="bui-tab-panel-item active" id="supplierCategoryLi"><a href="#supplierCategory">代理类目</a></li>-->
+                    <!--<li class="bui-tab-panel-item" id="supplierBrandLi"><a href="#supplierBrand">代理品牌</a></li>-->
+                    <!--<li class="bui-tab-panel-item" id="supplierFinancialLi"><a href="#supplierFinancial">财务信息</a></li>-->
+                    <!--<li class="bui-tab-panel-item" id="supplierAfterSaleLi"><a href="#supplierAfterSale">售后信息</a></li>-->
+                <!--</ul>-->
+            </div>
+
+            <div id="tabContent">
+
+                <!-----------------供应商分类开始----------------->
+                <div id="supplierCategory" style="display: none;">
+                    <button id="add_category_btn" type="button" class="button button-primary" style="margin: 20px 0">添加类目</button>
+                    <div id="categoryGrid">
+                    </div>
+                </div>
+                <!-----------------供应商分类结束----------------->
+
+                <!-----------------供应商品牌开始----------------->
+                <div id="supplierBrand"  style="display: none;" class="search-grid-container">
+                    <button id="add_brand_btn" type="button" class="button button-primary" style="margin: 20px 0">添加品牌</button>
+                    <div id="brandGrid">
+                    </div>
+                </div>
+                <!-----------------供应商品牌结束----------------->
+
+                <!-----------------供应商财务信息开始----------------->
+                <div id="supplierFinancial" style="margin-top: 30px;display: none;" class="bui-form-group">
+                    <div class="row-fluid">
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>开户银行：</label>
+                            <div class="controls">
+                                <input type="text" style="width: 250px;" id="depositBank" name="depositBank" data-rules="{required:true, maxlength:128}"/>
+                            </div>
+                        </div>
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>银行账号：</label>
+                            <div class="controls">
+                                <input type="text" style="width: 250px;" id="bankAccount" name="bankAccount" data-rules="{required:true, maxlength:32}"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-----------------供应商财务信息结束----------------->
+
+                <!-----------------供应商售后信息开始----------------->
+                <div id="supplierAfterSale" style="margin-top: 30px;display: none;" class="bui-form-group">
+                    <div class="row-fluid">
+                        <div class="control-group ">
+                            <label class="control-label"><s>*</s>退货地址：</label>
+                            <div class="controls">
+                                <input style="width: 500px;" type="text" id="goodsReturnAddress" name="goodsReturnAddress" data-rules="{required:true, maxlength:256}" data-messages="{required:'不能为空'}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>退货联系人：</label>
+                            <div class="controls">
+                                <input style="width: 150px;" type="text" id="goodsReturnContactPerson" name="goodsReturnContactPerson" data-rules="{required:true, maxlength:32}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="control-group span10">
+                            <label class="control-label"><s>*</s>退货联系电话：</label>
+                            <div class="controls">
+                                <input style="width: 150px;" type="text" id="goodsReturnPhone" name="goodsReturnPhone" data-rules="{required:true, maxlength:20, phone:0}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="control-group">
+                            <label class="control-label">退货策略：</label>
+                            <div class="controls  control-row-auto">
+                                <textarea id="goodsReturnStrategy" name="goodsReturnStrategy" class="control-row9 input-large" style="width: 500px;" data-rules="{maxlength:1500}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+                <!-----------------供应商售后信息结束----------------->
+
+            </div>
+
+        </div>
+
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <label id="save_btn" type="button" class="button button-primary">保存</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label id="btn_list" type="button" class="button">返回</label>
+        </div>
+
+
+        <!--供应商主键ID--->
+        <input type="hidden" id="id"/>
+
+
+    </form>
+
+
+    <!--分类ID--->
+    <input type="hidden" id="categoryIds"/>
+
+</div>
+</body>
+</html>

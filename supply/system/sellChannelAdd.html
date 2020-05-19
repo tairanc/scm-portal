@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新增销售渠道</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+
+<body>
+    <div class="content bodyer2">
+        <form id="J_Form" action="" class="form-horizontal">
+            <!--<div class="control-group">
+                <label class="control-label">渠道编号：</label>
+                <div class="controls">
+                    <input style="width: 200px;border: 0px"  id="code" name="code" type="text" value="保存后系统自动生成" readonly>
+                </div>
+            </div>-->
+            <div class="control-group">
+                <label class="control-label"><s>*</s>销售渠道名称：</label>
+                <div class="controls">
+                    <input style="width: 500px;"  id="sellName" name="sellName" type="text" data-rules="{required:true,maxlength:100}">
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label"><s>*</s>销售渠道类型</label>
+                    <div class="controls">
+                        <select id="sellType" name="sellType">
+                            <option value="">请选择</option>
+                            <!--<option value="0" name="sellType">线上</option>
+                            <option value="1" name="sellType">线下</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div id="storeDiv" class="control-group span8" style="display: none;">
+                    <label class="control-label" style="width: 200px;"><s>*</s>门店销售系统内门店ID：</label>
+                    <div class="controls">
+                        <input id="storeId" name="storeId" type="text" data-rules="{maxlength:255}">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">备注：</label>
+                <div class="controls  control-row-auto">
+                    <textarea id="remark" name="remark" style="width:500px;" class="control-row4 input-large" data-rules="{maxlength:300}"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-actions" style="text-align:center;padding-bottom:20px">
+                    <button id="save_btn" type="button" class="button button-primary">保存</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="btn_list" type="button" class="button">取消</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

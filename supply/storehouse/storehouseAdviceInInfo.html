@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>调拨入库通知单详情</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="http://g.alicdn.com/bui/bui/1.1.21/bui.js"></script>
+</head>
+
+<body style="overflow-y:scroll;">
+<div class="content detail">
+    <form id="J_Form" class="form-horizontal">
+
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">操作日志</span>
+                </div>
+            </div>
+            
+            <div class="panel-body" style="margin-top:15px;">
+                <div class="control-group">
+                    <div class="controls span5">
+                        <label class="control-label">发件人：</label>
+                        <span id="sender" style="line-height:30px;"></span>
+                    </div>
+                    <div class="control-group span5">
+                            <label class="control-label">发件方手机：</label>
+                            <span id="senderMobile" style="line-height:30px;"></span>
+                    </div>
+                    
+                    <div class="controls span10">
+                        <label class="control-label">发件方省份.城市：</label>
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="senderProvince" style="line-height:30px;"></span>&nbsp;<span id="senderCity" style="line-height:30px;"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group span10">
+                        <label class="control-label">发件方详细地址：</label>
+                        <span id="senderAddress" style="line-height:30px;"></span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls span5">
+                        <label class="control-label">收件人：</label>
+                        <span id="receiver" style="line-height:30px;"></span>
+                    </div>
+
+                    <div class="control-group span5">
+                            <label class="control-label">收件方手机：</label>
+                            <span id="receiverMobile" style="line-height:30px;"></span>
+                    </div>
+
+                    <div class="controls span10">
+                        <label class="control-label">收件方省份.城市：</label>
+                        <div class="controls bui-form-group-select" data-type="city2">
+                            <span id="receiverProvince" style="line-height:30px;"></span>&nbsp;<span id="receiverCity" style="line-height:30px;"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group span10">
+                        <label class="control-label">收件方详细地址：</label>
+                        <span id="receiverAddress" style="line-height:30px;"></span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <span id="memo" style="line-height: 30px" ></span>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>       
+        <div class="panel panel-info" style="margin-top: -10px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left"> 商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div id="grid" style="width:1400px;">
+
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding: 20px 0">
+            <div style="text-align: center;">
+                <span id="buttonSpan"></span>
+                <button id="btnBack" type="button" class="button">返回</button>
+            </div>
+        </div>
+        <input id="" name="id" type="hidden">
+    </form>
+</div>
+</body>
+</html>

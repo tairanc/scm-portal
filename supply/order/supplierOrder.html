@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>供应商订单</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body style="overflow-y:auto">
+<div class="content bodyer">
+    <div id="tab" class="detail-row">
+        <ul>
+            <li class="bui-tab-panel-item active"><a href="#">自采供应商订单</a></li>
+            <li class="bui-tab-panel-item"><a href="#">代发供应商订单</a></li>
+        </ul>
+    </div>
+    <div id="tabContent">
+        <!-- 自采商品查询开始 -->
+        <div id="goodsDiv">
+            <div class="row">
+
+                <form id="J_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+                    <div class="row-fluid">
+                        <div class="control-group span7">
+                            <label class="control-label">供应商订单编号：</label>
+                            <div class="controls">
+                                <input id="warehouseOrderCode" type="text" name="warehouseOrderCode" data-rules="{maxlength:32}"/>
+                            </div>
+                        </div>
+                        <div class="control-group span7">
+                            <label class="control-label">供应商名称：</label>
+                            <div class="controls">
+                                <select id="supplierCode" name="supplierCode">
+                                    <option value="2">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="control-group span7">
+                            <label class="control-label">店铺订单编号：</label>
+                            <div class="controls">
+                                <input id="shopOrderCode" type="text" name="shopOrderCode" data-rules="{maxlength:32}"/>
+                            </div>
+                        </div>                        
+                        <div class="control-group span7">
+                            <label class="control-label">付款日期：</label>
+                            <div class="controls bui-form-group" data-rules="{dateRange : true}">
+                                <input class="calendar" type="text" id="startDate" name="startDate"/><label> - </label>
+                                <input class="calendar" type="text" id="endDate" name="endDate"/>
+                            </div>
+                        </div>
+                        <div class="form-actions span7">
+                            <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="reset_btn" type="reset" class="button button-primary">重置</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+            <div class="search-grid-container" style="padding: 20px;">
+                <div id="grid">
+                </div>
+                <div id="bar" class="bui-grid"></div>
+            </div>
+        </div>
+        <!-- 自采商品查询 -->
+
+        <!-- 代发商品查询开始 -->
+        <div id="externalGoodsDiv" class="row">
+
+            <form id="J_Form2" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row-fluid">
+                    <div class="control-group span6">
+                        <label class="control-label">供应商订单编号：</label>
+                        <div class="controls">
+                            <input id="warehouseOrderCode2" type="text" name="warehouseOrderCode" data-rules="{maxlength:32}"/>
+                        </div>
+                    </div>
+
+                    <div class="control-group span6">
+                        <label class="control-label">销售渠道订单号：</label>
+                        <div class="controls">
+                            <input id="shopOrderCode2" type="text" name="shopOrderCode" data-rules="{maxlength:32}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span6">
+                        <label class="control-label">状态：</label>
+                        <div class="controls">
+                            <select id="supplierOrderStatus" name="supplierOrderStatus">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group span6">
+                        <label class="control-label">销售渠道：</label>
+                        <div class="controls">
+                            <select id="sellCode" name="sellCode">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="control-group span6">
+                        <label class="control-label">系统订单号：</label>
+                        <div class="controls">
+                            <input id="scmShopOrderCode" type="text" name="scmShopOrderCode" data-rules="{maxlength:32}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span6">
+                        <label class="control-label">供应商名称：</label>
+                        <div class="controls">
+                            <select id="supplierCode2" name="supplierCode">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group span6">
+                        <label class="control-label" style="width:135px;">销售渠道平台订单编号：</label>
+                        <div class="controls">
+                            <input id="platformOrderCode" type="text" name="platformOrderCode" data-rules="{maxlength:32}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span6">
+                        <label class="control-label">付款日期：</label>
+                        <div class="controls bui-form-group">
+                            <input class="calendar" type="text" id="startDate2" name="startDate"/><label> - </label>
+                            <input class="calendar"  type="text" id="endDate2" name="endDate"/>
+                            <div id="showMsgDiv" style="display:none;">
+                                <span class="estate error"><span class="x-icon x-icon-mini x-icon-error">!</span><em style="font-style:normal;color:red;">结束日期不能小于起始日期！</em></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions span7" style="margin-left:175px;float:right">
+                        <button id="sel_btn2" type="button" class="button button-primary">查询</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="reset2" type="reset" class="button button-primary">重置</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="save" type="button" class="button button-primary">导出</button>                        
+                    </div>
+                </div>
+
+
+            </form>
+            <br/>
+            <div class="search-grid-container" style="padding: 20px;">
+                <div id="grid2">
+                </div>
+                <div id="bar2" class="bui-grid"></div>
+            </div>
+        </div>
+        <!-- 代发商品查询 -->
+        <!-- 京东地址匹配开始 -->
+        <div id="jdAddressAdapterDiv" style="margin-top: 10px; display: none;">
+            <form id="J_Form3" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row">
+                    <div class="control-group ">
+                        <label class="control-label">收货人省市区：</label>
+                        <div class="controls">
+                            <span id="provinceCityArae" class="control-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group ">
+                        <label class="control-label">收货人详细地址：</label>
+                        <div class="controls">
+                            <span id="address" class="control-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group ">
+                        <label class="control-label"><font style="color: red">*</font>京东地址：</label>
+                        <div class="controls">
+                            <select id="jdAddress" name="jdAddress" style="width: 300px;" class="bui-hidden">
+                            </select>
+                            <div class="controls bui-form-group-select" data-type="jingDongArea" style="    margin-left: 0;">
+                                <select style="width: auto;" id="province" name="province" class="input-small">
+                                    <option selected="selected">省份</option>
+                                </select>
+                                <select style="width: auto;" id="city" name="city" class="input-small">
+                                    <option selected="selected">城市</option>
+                                </select>
+                                <select style="width: auto;" id="area" name="area" class="input-small">
+                                    <option selected="selected">区/县</option>
+                                </select>
+                                <select style="width: auto;" id="street" name="area" class="input-small">
+                                    <option selected="selected">街道</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 关闭订单 -->
+        <div id="clsoeOrderDiv" style="margin-top:10px;display:none;">
+            <form id="J_Form3" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row" style="margin-left:3px;">
+                    <div class="control-group ">
+                        <span><span style="color:red">*</span>请输入关闭原因：</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-left:3px;">
+                    <textarea style="height:90px;width:400px;margin-top:10px;" id="cancelReason" required></textarea>
+                </div>
+            </form>
+        </div>
+        <!-- 取消关闭 -->
+        <div id="closeCancelDiv" style="margin-top:10px;display:none;">
+            <form id="J_Form4" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row" style="margin-left:15px;">
+                    <div class="control-group">
+                        <div style="font-weight:bold">您确认取消关闭吗?</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-left:15px;magrin-top:20px;">
+                    <div class="control-group" style="width:350px;;">
+                        <div>确定后数据将恢复到关闭前的状态。</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--js主函数-->
+<script src="../../js/supply/supplier/supplierSelect.js"></script>
+
+<div class="search-grid-container">
+    <form id="sel_Form">
+        <div class="row">
+            <div class="control-group span0">
+                <label class="control-label">供应商名称：</label>
+                <div class="controls">
+                    <input id="supplierName" type="text" name="supplierName"/>
+                </div>
+                <label class="control-label">供应商编号：</label>
+                <div class="controls">
+                    <input id="supplierCode" type="text" name="supplierCode"/>
+                </div>
+                <label class="control-label">供应商性质：</label>
+                <div class="controls">
+                    <select  id="supplierKindCode3" name="supplierKindCode"></select>
+                </div>
+                <div class="controls">
+                    <input id="sel_btn" type="button" class="button button-primary" value="查询"/>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div  style="margin-top: 20px">
+    <div id="supplierList"></div>  
+</div>
+<div id="bar" class="bui-grid"  style="min-height:10px;"></div>
+<div class="row" style="margin-top: 20px;text-align:right;">
+    <div class="form-actions  offset3" style="margin-left: 20px;margin-top: 10px">
+        <button id="select_btn_supplier" type="button" class="button button-primary"
+                style="margin-right: 20px;margin-top: 20px">确定
+        </button>
+        <button id="btn_back_supplier" type="button" class="button"
+                style="margin-right: 20px;margin-top: 20px">取消
+        </button>
+    </div>
+</div>
+
+

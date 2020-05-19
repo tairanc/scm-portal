@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>商品详情</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    input[type=text] {
+        width: 200px;
+    }
+
+    #normal3Cert {
+        margin-left: 110px;
+        width: 80%;
+    }
+
+    #normal3Cert table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #normal3Cert table tr {
+
+    }
+
+    #normal3Cert table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #threeCertUnion {
+        margin-left: 110px;
+        width: 80%;
+        /*display: none;*/
+    }
+
+    #threeCertUnion table {
+        border: ridge;
+        width: 100%;
+    }
+
+    #threeCertUnion table tr {
+
+    }
+
+    #threeCertUnion table tr td {
+        border: groove;
+        text-align: center;
+    }
+
+    #outerSupplier {
+        /*display: none;*/
+    }
+
+    .form-horizontal .controls {
+        margin-left: 5px;
+        float: left;
+        display: inline;
+        height: 48px;
+    }
+
+    input.calendar {
+        width: 70px;
+        margin-top: 10px;
+    }
+
+    #tabContent {
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
+        margin-top: -25px;
+    }
+
+    .panel2 {
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-info2 {
+        border-color: #9DB2C3;
+    }
+
+    .panel-header2 {
+        padding: 3px 3px 5px 5px;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        height: 15px;
+    }
+
+    .naturePropertySelect {
+        width: 180px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .td_titel {
+        text-align: center;
+        width: 10%;
+        font-weight: bolder;
+    }
+
+    .td_label {
+        text-align: right;
+        width: 15%;
+    }
+
+    .td_content {
+        width: 7%;
+        text-align: left;
+    }
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">SPU信息</h3>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">商品SPU编号：</label>
+                        <div class="controls">
+                            <input type="text" id="spuCode" name="spuCode" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">SPU状态：</label>
+                        <div class="controls">
+                            <input type="text" id="isValid" name="isValid" disabled="disabled">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label"><s>*</s>商品名称：</label>
+                        <div class="controls">
+                            <input type="text" id="name" name="name" data-rules="{required:true, maxlength:20}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label"><s>*</s>所属类目：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="categoryId" name="categoryId" data-rules="{required:true}" disabled="disabled">
+                                <option value="">选择类目</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="control-group span11">
+                        <label class="control-label"><s>*</s>所属品牌：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="brandId" name="brandId" class="input-small" data-rules="{required:true}" disabled="disabled"></select>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label"><s>*</s>贸易类型：</label>
+                        <div class="controls">
+                            <select style="width: 225px;" id="tradeType" name="tradeType" class="input-small" data-rules="{required:true}" disabled="disabled"></select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label"><s>*</s>商品货号：</label>
+                        <div class="controls">
+                            <input type="text" id="itemNo" name="itemNo" data-rules="{required:true, maxlength:32}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">生产商：</label>
+                        <div class="controls">
+                            <input type="text" id="producer" name="producer" data-rules="{maxlength:20}" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span20">
+                        <label class="control-label">商品主图：</label>
+                        <div>
+                            <div id="mainPictrue"></div>
+                        </div>
+                    </div>  
+                </div>                  
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group" style="margin-left: 10px;">
+                        <label class="control-label">备注：</label>
+                        <div class="controls  control-row-auto">
+                            <textarea id="remark" name="remark" class="control-row9 input-large" style="width: 640px;" data-rules="{maxlength:1500}" disabled="disabled"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="panel panel-info" style="margin-top: -10px;">
+                <div class="panel-header clearfix">
+                    <h3 class="pull-left"> 商品信息</h3>
+                </div>
+                <div class="panel-body">
+                    <!--基本信息-->
+                    <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                        <div class="panel-header2 clearfix">
+                            <h4 class="pull-left" style="color: #6c8ffc"> 基本信息</h4>
+                        </div>
+                        <div id="skuInfo" style="margin-top: 10px;">
+                            <div class="row">
+                                <div class="control-group span11">
+                                    <label class="control-label">商品SKU编号：</label>
+                                    <div class="controls">
+                                        <input type="text" id="skuCode" name="skuCode" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="control-group span11">
+                                    <label class="control-label">商品状态：</label>
+                                    <div class="controls">
+                                        <input type="text" id="isValid2" name="isValid" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="control-group span11">
+                                    <label class="control-label">SKU名称：</label>
+                                    <div class="controls">
+                                        <input type="text" id="skuName" name="skuName" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="control-group span11">
+                                    <label class="control-label">条形码：</label>
+                                    <div class="controls">
+                                        <input type="text" id="barCode" name="barCode" disabled="disabled">
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="row">
+                                <div class="control-group span11">
+                                    <label class="control-label">参考市场价：</label>
+                                    <div class="controls">
+                                        <input type="text" style="width: 50px;" id="marketPrice" name="marketPrice" disabled="disabled">&nbsp;元
+                                    </div>
+                                </div>
+                                <div class="control-group span11">
+                                    <label class="control-label">商品重量：</label>
+                                    <div class="controls">
+                                        <input type="text" style="width: 50px;" id="weight" name="weight" disabled="disabled">&nbsp;KG
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="control-group span11">
+                                    <label class="control-label">图片：</label>
+                                    <div class="controls">
+                                        <div id="picturePic"></div>
+                                        <input type="hidden" id="picture" name="picture"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                        </div>
+
+                    </div>
+
+                    <!--自然属性-->
+                    <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                        <div class="panel-header2 clearfix">
+                            <h4 class="pull-left" style="color: #6c8ffc"> 自然属性</h4>
+                        </div>
+                        <div id="naturePropertys" style="margin-top: 10px;">
+
+
+                        </div>
+
+                    </div>
+
+                    <!--采购属性-->
+                    <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                        <div class="panel-header2 clearfix">
+                            <h4 class="pull-left" style="color: #6c8ffc"> 采购属性</h4>
+                        </div>
+                        <div id="purchasePropertys" style="margin-top: 10px;">
+
+                        </div>
+
+                    </div>
+
+                    <!--规格信息-->
+                    <div class="panel2 panel-info2" style="margin-top:10px;margin-left: 5px; margin-right: 5px;">
+                        <div class="panel-header2 clearfix">
+                            <h4 class="pull-left" style="color: #6c8ffc"> 仓库反馈库存信息</h4>
+                        </div>
+                        <div id="skuGrid" style="margin-top: 10px; text-align:center;">
+                            <!-- <table style="width: 90%; height: 70px;" border="1">
+                                <tr>
+                                    <td class="td_titel" style="text-align:center">总计</td>
+                                    <td class="td_label" style="text-align:center">可用正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="availableInventory"></span></td>
+                                    <td class="td_label" style="text-align:center">锁定正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="lockAvailableInventory"></span></td>
+                                    <td class="td_label" style="text-align:center">真实正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="realInventory"></span></td>
+                                    <td class="td_label" style="text-align:center">残品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="defectiveInventory"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="td_titel" style="text-align:center"><span id="warehouse">仓库</span></td>
+                                    <td class="td_label" style="text-align:center">可用正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="availableInventory2"></span></td>
+                                    <td class="td_label" style="text-align:center">锁定正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="lockAvailableInventory2"></span></td>
+                                    <td class="td_label" style="text-align:center">真实正品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="realInventory2"></span></td>
+                                    <td class="td_label" style="text-align:center">残品总库存：</td>
+                                    <td class="td_content" style="text-align:center"><span id="defectiveInventory2"></span></td>
+                                </tr>
+                            </table> -->
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="form-actions" style="text-align:center;padding-bottom:20px">
+                <button id="btn_list" type="button" class="button">返回</button>
+            </div>
+
+            <input type="hidden" id="id"/>
+
+
+    </form>
+
+
+    <!--分类ID--->
+    <input type="hidden" id="categoryIds"/>
+</div>
+
+</div>
+</body>
+</html>

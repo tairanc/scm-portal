@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>品牌新增</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body>
+<div class="content bodyer2">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label"><s>*</s>品牌名称：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="name" name="name" type="text" data-rules="{required:true,maxlength:50}" placeholder="不超过50个字符">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">品牌别名：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="alise" name="alise" type="text" data-rules="{maxlength:50}" placeholder="不超过50个字符">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">品牌网址：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="webUrl" name="webUrl" type="text" data-rules="{maxlength:200}" placeholder="不超过200个字符">&nbsp;&nbsp;网页前请加"http://"
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">品牌LOGO：</label>
+            <div style="margin-left: 10px;float: left;">
+                <div id="brandLogoPicUploader"></div>
+            </div>
+            <input type="hidden" id="logo" name="logo"/>
+        </div>
+        <div class="control-group">
+            <label class="control-label">&nbsp;</label>
+            <label class="control-text" style="color: #333333">注：最多上传1张图片，支持JPG、JPEG、BMP和PNG图片格式，尺寸150px×150px，大小不超过2M</label>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><s>*</s>状态：</label>
+            <div class="controls">
+                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid" name="isValid" value="1" checked>启用</label>&nbsp;&nbsp;&nbsp;
+                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid2" name="isValid" value="0">停用</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-actions span13 offset3">
+                <button id="save_btn" type="button" class="button button-primary">提交</button>
+                <!--<button id="reset_btn" type="reset" class="button button-primary">重置</button>-->
+                <button id="btn_list" type="button" class="button">返回</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

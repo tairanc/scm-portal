@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>供应商新增</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="../../js/supply/config/dictAdd.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $.providerAddApp.init();
+    });
+</script>
+
+<body>
+    <div class="content bodyer2">
+        <form id="J_Form" action="" class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">供应商编号：</label>
+                <input style="width: 150px;" data-rules="{required:true}" type="text" name="supplierCode" value="保存后系统自动生成" readonly/>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><s>*</s>供应商性质：</label>
+                <div class="controls">
+                    <input id="purchase" type="radio" name="supplierKindCode" value="0" checked/> 采购
+                    <input id="issuing" type="radio" name="supplierKindCode" value="1"/> 一件代发
+                    <span id="providerConnectorId">供应商接口ID <input type="text" name="providerConnectorId"/></span>
+                    <!--<select style="width: 200px;" id="typeN" name="typeNo" data-rules="{required:true,maxlength:64}"></select>-->
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label"><s>*</s>类型名称：</label>
+                <div class="controls">
+                    <select style="width: 200px;" id="typeNo" name="typeNo" data-rules="{required:true,maxlength:64}"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><s>*</s>字典名称：</label>
+                <div class="controls">
+                    <input style="width: 200px;"  id="name" name="name" type="text"  data-rules="{required:true,maxlength:64}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><s>*</s>字典值：</label>
+                <div class="controls">
+                    <input style="width: 200px;"  id="value" name="value" type="text"  data-rules="{required:true,maxlength:64}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><s>*</s>是否生效：</label>
+                <div class="controls">
+                    <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid" name="isValid" value="1" checked>是</label>&nbsp;&nbsp;&nbsp;
+                    <label class="control-label radio" for="" style="text-align: left;"><input type="radio" id="isValid2" name="isValid" value="0">否</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-actions" style="text-align:center;padding-bottom:20px">
+                    <button id="save_btn" type="button" class="button button-primary">提交</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="reset_btn" type="reset" class="button button-primary">重置</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="btn_list" type="button" class="button">返回</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

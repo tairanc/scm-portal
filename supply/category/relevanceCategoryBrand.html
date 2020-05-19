@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>品牌修改</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body  style="overflow-y: auto">
+<div style="margin: 20px">
+    <div class="content bodyer2">
+        <form id="J_Form" action="" class="form-horizontal">
+            <input id="id" name="id" type="hidden"><!--  主键ID -->
+            <div class="control-group">
+                <label class="control-label">当前分类：</label>
+                <div class="controls" style="padding-top: 5px;">
+                    <!--<input id="nowCategory"  type="text" readonly="readonly" style="width: auto">-->
+                    <label  id="nowCategory" style="padding: 6px 12px;border: 1px solid #cccccc;border-radius: 4px;line-height: 20px;font-size: 14px;"></label>
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label"><s>*</s>关联品牌：</label>
+                <div class="controls">
+                    <input style="width: 100px;" id="relevance" name="relevance" type="button" readonly="readonly"
+                           class="button categoryBrand"
+                           value="选择品牌">
+                </div>
+            </div>
+
+            <div class="search-grid-container" style="margin-right: 50px;margin-left: 50px; margin-top: 10px">
+                <div id="brandGrid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-actions span13 offset5">
+                    <button id="save_btn" type="button" class="button button-primary"
+                            style="margin-right: 40px;margin-top: 20px">保存
+                    </button>
+                    <button id="btn_list" type="button" class="button"
+                            style="margin-right: 40px;margin-top: 20px">取消
+                    </button>
+                </div>
+            </div>
+
+            <input type="hidden" id="categoryBrands"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

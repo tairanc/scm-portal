@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>商品详情</title>
+    <script src="../../js/util/head.js"></script>
+    <script src="http://g.alicdn.com/bui/bui/1.1.21/bui.js"></script>
+</head>
+
+<style type="text/css">
+
+    body {
+        overflow-y: auto;
+    }
+
+    .textContent {
+
+    }
+
+
+</style>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn" id="orderLog">订单日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">销售渠道订单号：</label>
+                        <div class="controls control-text grey" style="line-height: 30px">
+                            <span id="shopOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">发货状态：</label>
+                        <div class="controls grey" style="line-height:30px;">
+                            <span id="supplierOrderStatus" class="supplierOrderStatus"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">系统订单号：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="scmShopOrderCode" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">订单类型：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="type" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="control-group span11">
+                        <label class="control-label">店铺名称：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="shopName" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">付款时间：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="payTime" class="textContent"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">邮费(元)：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="postageFee" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">总税费(元)：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="totalTax" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">实付款(元)：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="payment" class="textContent"></span>
+                        </div>
+                    </div>
+                   <!--<div class="control-group span11">
+                        <label class="control-label">实付总金额(元)：</label>
+                        <div class="controls">
+                            <span id="payment" class="textContent"></span>
+                        </div>
+                    </div>-->
+                </div>
+
+
+                <!--<div class="row">
+                    <div class="control-group span12">
+                        <label class="control-label" style="width: 150px;">订单优惠总金额(元)：</label>
+                        <div class="controls">
+                            <span id="discountTotalFee" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label"></label>
+                        <div class="controls">
+
+                        </div>
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">收货人：</label>
+                        <div class="controls control-text grey" style="line-height: 30px">
+                            <span id="receiverName" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">收货人联系方式：</label>
+                        <div class="controls control-text grey" style="line-height: 30px">
+                            <span id="receiverMobile" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group span11">
+                        <label class="control-label">收货省市区：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="receiverArea" class="textContent"></span>
+                        </div>
+                    </div>
+                    <div class="control-group span11">
+                        <label class="control-label">收货详细地址：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="receiverAddress" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group span18">
+                        <label class="control-label">备注：</label>
+                        <div class="controls grey" style="line-height: 30px">
+                            <span id="tradeMemo" class="textContent"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-info" style="margin-top: -10px;">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left"> 商品明细</h3>
+            </div>
+            <div class="panel-body">
+                <div class="orderWrap" id="grid">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-actions" style="text-align:center;padding-bottom:20px">
+            <button id="btn_list" type="button" class="button">返回</button>
+        </div>
+
+    </form>
+
+
+</div>
+</body>
+</html>

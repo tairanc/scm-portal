@@ -1,0 +1,82 @@
+
+<!--<script src="../../js/supply/purchase/itemSelect.js"></script>-->
+<!--<script>
+
+    document.write("<s"+"cript type='text/javascript' src='../../js/supply/purchase/itemSelect.js?"+Math.random()+"'></scr"+"ipt>");
+
+</script>-->
+<script type="text/javascript">
+
+    $(document).ready(function(e) {
+        $("#skus").val($.purchaseOrderUpdateApp.skuArray)
+        $.itemSelectUpdate.init();
+    });
+</script>
+
+    <!-- 搜索页 ================================================== -->
+    <div class="row">
+        <div class="span24">
+            <form id="sel_Form" class="form-horizontal" tabindex="0" style="outline: none;">
+                <div class="row">
+                    <div class="control-group span8">
+                        <label class="control-label">SKU名称：</label>
+                        <div class="controls">
+                            <input  id="name" name="skuName" type="text" data-rules="{maxlength:64}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span8">
+                        <label class="control-label">商品SKU编号：</label>
+                        <div class="controls">
+                            <input  id="skuCode" name="skuCode" type="text" data-rules="{maxlength:32}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span8">
+                        <label class="control-label">品牌名称：</label>
+                        <div class="controls">
+                            <select id="brandName" name="brandName" data-rules="{maxlength:128}">                                
+                            </select>
+                        </div>
+                    </div>
+                    <input id="skus" name="skus" type="hidden"/>
+                </div>
+                <div class="row">
+                   <div class="control-group span8">
+                        <label class="control-label">商品货号：</label>
+                        <div class="controls">
+                            <input  id="itemNo" name="itemNo" type="text" data-rules="{maxlength:64}"/>
+                        </div>
+                    </div>
+                    <div class="control-group span8">
+                        <label class="control-label">条形码：</label>
+                        <div class="controls">
+                            <input  id="barCode" name="barCode" type="text" data-rules="{maxlength:32,isBarCode:0}"/>
+                        </div>
+                    </div> 
+                    <div class="form-actions span5" style="margin-left: 50px;">
+                        <button id="sel_btn" type="button" class="button button-primary">查询</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </form>
+            <div class="ruleExp">
+                <span style="margin-left:19px;display:inline-block">同时满足下列条件的商品才显示:1.商品状态为启用 2.商品的品牌符合所选择供应商具有类目下的品牌 3.商品在所选"收货仓库"中的"通知仓库状态"为"通知成功"。
+                </span>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div>
+        <div id="ItemList"></div>
+        <div id="bar" class="bui-grid" style="min-height:10px;"></div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;text-align:right;">
+        <div class="form-actions  offset3" style="margin-left: 20px;margin-top: 10px">
+            <button id="select_btn_item_update" type="button" class="button button-primary"
+                    style="margin-right: 20px;">确定
+            </button>
+            <button id="btn_back_item_update" type="button" class="button"
+                    style="margin-right: 20px;">取消
+            </button>
+        </div>
+    </div>

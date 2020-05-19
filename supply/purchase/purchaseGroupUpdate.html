@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 修改采购组</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+<body>
+<div class="content detail">
+
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="panel panel-info">
+            <div class="panel-header clearfix">
+                <h3 class="pull-left">基本信息</h3>
+                <div class="pull-right">
+                    <span class="logs-btn">操作日志</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="control-group">
+                    <label class="control-label">采购组编号：</label>
+                    <div class="controls">
+                        <input style="width: 200px;border: 0px" id="code" name="code" type="text" data-rules="{required:true,maxlength:32}" readonly>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>采购组名称：</label>
+                    <div class="controls">
+                        <input style="width: 200px;" id="name" name="name" type="text" data-rules="{required:true,maxlength:32}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>采购组员：</label>
+                    <div class="controls"  style="height: auto;">
+                        <table id="J_Table" class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td style="width: 100px">姓名</td>
+                                <td style="width: 100px">选为组员<span style="color: #0e90d2">(多选)</span></td>
+                                <td style="width: 100px">选为组长<span style="color: #0e90d2">(单选)</span></td>
+                            </tr>
+                            </thead>
+                            <tbody id="J_Tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="edit_btn" type="button" class="button">采购组员维护</button>
+                    <span id="firstMsg" style="color: red"></span>
+                    <span id="secendMsg" style="color: red"></span>
+                    <input type="hidden" id="leaderUserId" name="leaderUserId"/>
+                    <input type="hidden" id="leaderName" name="leaderName"/>
+                    <input type="hidden" id="memberUserId" name="memberUserId"/>
+                    <input type="hidden" id="memberName" name="memberName"/>
+                </div>
+                <!-- <div class="control-group">
+                    <label class="control-label"><s></s></label>
+                    <div class="controls">
+                        <span style="color: gray">注：表格中为具有采购组员角色的人，若所选对象不在其中，请先在【系统管理->授权管理】模块将其授为采购组员。</span>
+                    </div>
+                </div> -->
+                <!--<div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls  control-row-auto">
+                        <textarea id="remark" name="remark" class="control-row4 input-large" data-rules="{maxlength:512}"></textarea>
+                    </div>
+                </div>-->
+                <div class="control-group">
+                    <label class="control-label"><s>*</s>状态：</label>
+                    <div class="controls">
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid" name="isValid" value="1" checked>启用</label>&nbsp;&nbsp;&nbsp;
+                        <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">停用</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-actions  offset3">
+                        <button id="save_btn" type="button" class="button button-primary">保存</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="btn_list" type="button" class="button">取消</button>
+                    </div>
+                </div>
+        </form>
+                <input id="id" name="id" type="hidden"><!--  主键ID -->
+            </div>
+    <form id="J_Form_add_content" action="" class="form-horizontal">
+        <div id="add_content" style="display: none">
+            <div id="add_grid" class="controls" style="height: 312px;display: inline-block;width: 90%;overflow-y: scroll;overflow-x: hidden;padding-right: 5px;">
+        </div>
+            <button id="add_more_btn" type="button" class="button" style="display: inline-block;float: right;">+</button>
+
+</div>
+</form>
+</body>
+</html>

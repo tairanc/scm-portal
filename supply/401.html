@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<title>供应链管理系统</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../js/util/head.js"></script>
+    <script type="text/javascript">
+        function goHome() {
+        	var aContent = $.AjaxContent();
+            aContent.type = "POST";
+            aContent.url = $.scmServerUrl + "account/user/logout/";
+            aContent.success = function () {
+                if (window.location.origin.indexOf('tairanmall.com') != -1) {
+                    var redirectUrl = window.location.origin + "/supply/selectChannel.html";
+                    window.location.href = 'http://passport.tairanmall.com/login?redirectUrl=' + redirectUrl;
+                } else {
+                    window.location.href = '/supply/login.html';
+                }
+                
+                localStorage.clear();
+            };
+            $.ajax(aContent);
+        }
+    </script>
+</head>
+<body class="loginBg">
+<div class="loginGroupBg"></div>
+<div class="loginGroup">
+    <h1>无访问权限</h1>
+    <button class="button button-primary" onclick="goHome()">重新登录</button>
+</div>
+</body>
+</html>

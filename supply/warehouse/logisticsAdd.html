@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新增授权</title>
+    <script src="../../js/util/head.js"></script>
+</head>
+
+
+
+<body style="overflow-y:scroll;">
+<div class="content bodyer2" style="overflow-y:auto;">
+    <form id="J_Form" action="" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label"><s>*</s>用户姓名：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="name" name="name" type="text" onkeydown="if(event.keyCode==13||event.keyCode == 32){event.keyCode=0;event.returnValue=false;}"
+                       data-rules="{required:true,maxlength:32}">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><s>*</s>手机号：</label>
+            <div class="controls">
+                <input style="width: 200px;" id="phone" name="phone" type="text" onkeydown="if(event.keyCode==13||event.keyCode == 32){event.keyCode=0;event.returnValue=false;}"
+                       data-rules="{required:true,maxlength:13, mobile:0}">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"><s>*</s>所属自营仓：</label>
+            <div class="controls">
+                <label class='checkbox' style='display:inline-block;min-width: 155px;line-height:35px;'>
+                <input name='roleNames' type='checkbox' style='font-size: small' value="type_shangfeng">TAIRAN生活馆（上峰店）</label>
+                <label class='checkbox' style='display:inline-block;min-width: 155px;line-height:35px;'>
+                <input name='roleNames' type='checkbox' style='font-size: small' value="type_xihu">TAIRAN生活馆（西湖店）</label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><s>*</s>用户权限：</label>
+            <div class="controls">
+                <label class='checkbox' style='display:inline-block;min-width: 155px;line-height:35px;'>
+                <input name='roleNames' type='checkbox' style='font-size: small' value="type_shangfeng">TAIRAN生活馆（上峰店）</label>
+                <label class='checkbox' style='display:inline-block;min-width: 155px;line-height:35px;'>
+                <input name='roleNames' type='checkbox' style='font-size: small' value="type_xihu">TAIRAN生活馆（西湖店）</label>
+            </div>
+        </div>
+        <div class="control-group"  style="margin-top: 10px">
+            <label class="control-label">备注：</label>
+            <div class="controls  control-row-auto">
+                <textarea id="remark" name="remark"  style="width:500px;" class="control-row4 input-large"
+                          data-rules="{maxlength:512}"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><s>*</s>状态：</label>
+            <div class="controls">
+                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid" name="isValid" value="1"
+                                                   checked>启用</label>&nbsp;&nbsp;&nbsp;
+                <label class="control-label radio" for="" style="text-align: left;"><input type="radio" class="radiosep" id="isValid2" name="isValid" value="0">停用</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-actions" style="text-align:center;padding-bottom:20px">
+                <button id="save_btn" type="button" class="button button-primary">保存</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="btn_list" type="button" class="button">取消</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
